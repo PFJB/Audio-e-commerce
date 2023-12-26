@@ -1,10 +1,11 @@
 
 import './App.css'
+import Home from './assets/composant/home/Home'
 
 function App() {
 
   return (
-    <div>ici la</div>
+    <Home />
   )
 }
 

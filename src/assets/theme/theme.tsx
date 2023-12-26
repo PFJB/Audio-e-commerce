@@ -1,11 +1,11 @@
 const colors = {
-    black: "hsl(0° 0% 0%)",
-    blackL: "hsl(0° 0% 6%)",
-    brown: "hsl(22° 65% 57%)",
-    lightBrown: "hsl(21° 94% 75%)",
-    grey: "hsl(0° 0% 95%)",
-    lightGrey: "hsl(0° 0% 98%)",
-    white: "hsl(0° 0% 100%)",
+    black: "hsl(0 0% 0%)",
+    blackL: "hsl(0 0% 6%)",
+    brown: "hsl(22 65% 57%)",
+    lightBrown: "hsl(21 94% 75%)",
+    grey: "hsl(0 0% 95%)",
+    lightGrey: "hsl(0 0% 98%)",
+    white: "hsl(0 0% 100%)",
 }
 
 const fonts = {
