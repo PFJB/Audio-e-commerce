@@ -8,6 +8,10 @@ const colors = {
     white: "hsl(0 0% 100%)",
 }
 
+const radius = {
+    light: "8px"
+}
+
 const fonts = {
     family: {
         manrope: "'Manrope', sans-serif",
@@ -51,5 +55,6 @@ const fonts = {
 
 export const theme = {
     colors,
-    fonts
+    fonts,
+    radius
 }
