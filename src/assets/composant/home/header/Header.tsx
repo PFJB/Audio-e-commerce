@@ -84,7 +84,7 @@ nav {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     height: 97px; 
     nav {
         .burger{ display: none; }
