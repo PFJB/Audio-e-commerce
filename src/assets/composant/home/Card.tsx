@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../theme/theme";
 
-export default function Card() {
+interface card_props {
+    picture: string,
+    title: string
+}
+
+export default function Card({ picture, title }: card_props) {
     return (
         <CardStyled>
             <div className="background"></div>
-            <img src="../../../../public/images/shared/desktop/image-category-thumbnail-headphones.png" alt="" />
+            <img src={picture} alt="" />
             <div className="description">
-                <p >Headphone</p>
+                <p >{title}</p>
                 <p >blabla</p>
             </div>
 
