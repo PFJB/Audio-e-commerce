@@ -71,7 +71,7 @@ nav {
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
-            letter-spacing: ${theme.fonts.charSpace.char_s5};
+            letter-spacing: ${theme.fonts.letterSpacing.char_s5};
         }
     }
 }
@@ -84,7 +84,7 @@ nav {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     height: 97px; 
     nav {
         .burger{ display: none; }
