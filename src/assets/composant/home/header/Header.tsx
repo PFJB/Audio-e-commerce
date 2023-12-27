@@ -45,8 +45,7 @@ nav {
     position: relative;
     padding: 0 24px;
     height: 100%;
-    width: 100%;
-    max-width: 1110px;
+    width: min(100%, 1110px);
     gap: 42px;
 
     .cart{
@@ -86,13 +85,10 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
+    height: 97px; 
     nav {
-        .burger{
-            display: none;
-        }
-        ul{
-            display: block;
-        }
+        .burger{ display: none; }
+        ul{ display: block; }
 
         .nav-list{
             position: absolute;
@@ -105,6 +101,13 @@ nav {
             text-transform: uppercase;
             gap: 34px;
             color: white;
+
+            li:hover,
+            li:focus {
+                cursor: pointer;
+                color: ${theme.colors.brown};
+
+            }
         }
     }
 }
