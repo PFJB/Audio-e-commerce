@@ -71,7 +71,7 @@ nav {
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
-            letter-spacing: ${theme.fonts.charSpace.char_s5};
+            letter-spacing: ${theme.fonts.letterSpacing.char_s5};
         }
     }
 }

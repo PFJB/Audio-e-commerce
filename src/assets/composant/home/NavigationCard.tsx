@@ -5,7 +5,6 @@ import { card_configs } from "./card_configs";
 export default function NavigationCard() {
 
     const cardConfigs = card_configs
-    console.log(cardConfigs)
 
     return (
         <NavigationCardStyled>
@@ -18,18 +17,16 @@ export default function NavigationCard() {
 
 const NavigationCardStyled = styled.section`
     display: grid;
+    place-items: end;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-
-    place-items: end;
     width: 100%;
     gap: 16px;
 
-
-@media screen and (min-width: 425px) {
-   
+@media screen and (min-width: 426px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
 }
+
 `;
