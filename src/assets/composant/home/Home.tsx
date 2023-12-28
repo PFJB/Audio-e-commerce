@@ -4,6 +4,8 @@ import NavigationCard from "./navigationCard/NavigationCard";
 import Footer from "./footer/Footer";
 
 export default function Home() {
+    window.onunload = function () { window.scrollTo(0, 0); }
+
     return (
         <HomeStyled>
             <Header />

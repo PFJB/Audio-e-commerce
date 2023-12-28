@@ -3,12 +3,14 @@ import { theme } from "../../../theme/theme";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { refreshPage } from "../../../../utils/window";
+const LOGO = "/images/shared/desktop/logo.svg"
 
 export default function Footer() {
     return (
         <FooterStyled>
             <div className="container">
-                <div className="logo"><img src="../../../../../public/images/shared/desktop/logo.svg" alt="" /></div>
+                <div className="logo"><img onClick={refreshPage} src={LOGO} alt="" /></div>
                 <ul className="nav-list">
                     <li className="navigation_title">Home</li>
                     <li className="navigation_title">Headphones</li>
@@ -32,6 +34,7 @@ export default function Footer() {
 }
 
 const FooterStyled = styled.footer`
+
 display: grid;
 place-items: center;
 position: relative;
@@ -80,8 +83,17 @@ padding: 60px 39px 46px 39px;
         display: flex;
         gap: 16px;
         li {
+            display: grid;
             font-size: 24px;
         }
+    }
+
+    .nav-list li:hover,
+    .nav-list li:focus,
+    .media_list li:hover,
+    .media_list li:focus{
+        color: ${theme.colors.brown};
+        cursor: pointer;
     }
 }
 
@@ -111,13 +123,13 @@ padding: 60px 39px 46px 39px;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) {
 padding: 71px 39px 52px 39px;
 
     .container{
         max-width: 1110px;
         grid-template-rows: auto auto auto;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto auto 1fr 1fr;
         gap: 36px;
 
         .logo{
@@ -126,9 +138,13 @@ padding: 71px 39px 52px 39px;
             }
         .nav-list{
             place-self:center end;
-            grid-area: auto / span 1;
-            }
-        .description{grid-area: auto / span 1;}
+            grid-area: auto / span 3;
+        }
+        .media_list{grid-area: auto / span 1;}
+        .description{
+            
+            grid-area: auto / span 3;
+        }
         .copyright{
             margin-top: 0;
             grid-area:3 / 1 / -1 / -1;}
