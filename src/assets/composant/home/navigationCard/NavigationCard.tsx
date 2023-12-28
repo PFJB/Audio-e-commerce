@@ -23,10 +23,9 @@ const NavigationCardStyled = styled.section`
     width: 100%;
     gap: 16px;
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 550px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
 }
-
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../theme/theme";
+import { theme } from "../../../theme/theme";
 import { FaChevronRight } from "react-icons/fa6";
 
 interface card_props {

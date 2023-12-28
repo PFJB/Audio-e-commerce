@@ -6,6 +6,7 @@ const colors = {
     grey: "hsl(0 0% 95%)",
     lightGrey: "hsl(0 0% 98%)",
     white: "hsl(0 0% 100%)",
+    white50: "hsl(0 0% 100% / 50%) ",
 }
 
 const radius = {
