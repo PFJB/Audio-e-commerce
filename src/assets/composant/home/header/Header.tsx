@@ -36,14 +36,13 @@ const HeaderStyled = styled.header`
     height: 90px;
     width: 100%;
     background-color: black;
-
-
+    padding: 0 24px;
 nav {
     display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
-    padding: 0 24px;
+  
     height: 100%;
     width: min(100%, 1110px);
     gap: 42px;
@@ -66,7 +65,8 @@ nav {
         height: 340px;
         left: 0;
         top: 100%;
-        color: black;
+        text-transform: uppercase;
+        color: ${theme.colors.black};
 
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
@@ -88,20 +88,16 @@ nav {
     height: 97px; 
     nav {
         .burger{ display: none; }
-        ul{ display: block; }
 
         .nav-list{
-            position: absolute;
+            position: relative;
             display: flex;
             width: auto;
             height: auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-transform: uppercase;
+            top: auto;
+            left: auto;
             gap: 34px;
             color: white;
-
             li:hover,
             li:focus {
                 cursor: pointer;
