@@ -50,15 +50,15 @@ height: 100%;
         width: 100%;
         max-width: 69.375rem;
         height: 100%;
-        gap: 120px;
+        gap: 7.5rem;
     }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 26.625rem) {
 
   
 
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 48.0625rem) {
     .body .l{ grid-template-columns: 1fr 1fr; }
 }
 `;

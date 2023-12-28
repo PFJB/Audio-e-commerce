@@ -29,9 +29,9 @@ const CardStyled = styled.a`
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    padding-bottom: 22px;
+    padding-bottom: 1.375rem;
     width: 100%;
-    height: 217px;
+    height: 13.5625rem;
 
     img{
         position: absolute;
@@ -54,7 +54,7 @@ const CardStyled = styled.a`
         position: relative;
         display: grid;
         place-items: center;
-        gap: 17px;
+        gap: 1.0625rem;
         z-index: 2;
 
         *  {

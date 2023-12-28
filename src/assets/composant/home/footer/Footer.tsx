@@ -41,15 +41,15 @@ position: relative;
 background-color: ${theme.colors.black};
 bottom: 0;
 width: 100%;
-padding: 60px 39px 46px 39px;
-margin-top: 120px;
+padding: 3.75rem 2.4375rem 2.875rem 2.4375rem;
+margin-top: 7.5rem;
 
 .container{
 
     display: grid;
     text-align: center;
     place-items: center;
-    gap: 48px;
+    gap: 3rem;
     color: white;
 
     .nav-list{
@@ -57,8 +57,8 @@ margin-top: 120px;
         flex-direction: column;
         align-items: center;
         text-transform: uppercase;
-        row-gap: 16px;
-        column-gap: 34px;
+        row-gap: 1rem;
+        column-gap: 2.125rem;
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
@@ -82,10 +82,10 @@ margin-top: 120px;
 
     .media_list{
         display: flex;
-        gap: 16px;
+        gap: 1rem;
         li {
             display: grid;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
     }
 
@@ -98,9 +98,9 @@ margin-top: 120px;
     }
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 34.375rem) {
 
-padding: 60px 39px 46px 39px;
+padding: 3.75rem 2.4375rem 2.875rem 2.4375rem;
     .container{
         grid-template-rows: auto min-content auto auto;
         grid-template-columns: 3fr 1fr;
@@ -116,7 +116,7 @@ padding: 60px 39px 46px 39px;
             flex-wrap: wrap;
         }
         .copyright{
-            margin-top: 30px;
+            margin-top: 1.875rem;
             place-self:  end start;
         }
         .media_list{ place-self: end; }
@@ -124,14 +124,14 @@ padding: 60px 39px 46px 39px;
     }
 }
 
-@media screen and (min-width: 769px) {
-padding: 71px 39px 52px 39px;
+@media screen and (min-width: 48.0625rem) {
+padding: 4.4375rem 2.4375rem 3.25rem 2.4375rem;
 
     .container{
-        max-width: 1110px;
+        max-width: 69.375rem;
         grid-template-rows: auto auto auto;
         grid-template-columns: auto auto 1fr 1fr;
-        gap: 36px;
+        gap: 2.25rem;
 
         .logo{
             place-self:center start;
