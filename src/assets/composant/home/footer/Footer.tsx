@@ -42,6 +42,7 @@ background-color: ${theme.colors.black};
 bottom: 0;
 width: 100%;
 padding: 60px 39px 46px 39px;
+margin-top: 120px;
 
 .container{
 
