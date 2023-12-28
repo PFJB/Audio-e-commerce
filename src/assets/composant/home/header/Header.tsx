@@ -36,14 +36,13 @@ const HeaderStyled = styled.header`
     height: 90px;
     width: 100%;
     background-color: black;
-
-
+    padding: 0 24px;
 nav {
     display: flex;
     flex-direction: row;
     align-items: center;
     position: relative;
-    padding: 0 24px;
+  
     height: 100%;
     width: min(100%, 1110px);
     gap: 42px;
