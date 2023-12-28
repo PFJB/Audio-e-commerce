@@ -49,7 +49,7 @@ nav {
 
     .cart{
         position: absolute;
-        right: 24px;
+        right: 0;
         place-self: center;
     }
     .logo{
