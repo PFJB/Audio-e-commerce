@@ -33,13 +33,13 @@ export default function HomeContent() {
 	window.onresize = GetImageUrl
 
 
+
 	return (
 		<HomeContentStyled>
 
 			<div className="pic1">
-				<div className="image2"><img src={image2} alt="" /></div>
-				<div>
-				</div>
+
+
 			</div>
 
 
@@ -72,11 +72,12 @@ const HomeContentStyled = styled.section`
 
 	.pic1{
 		display: grid;
-		grid-template-rows: 1fr 3fr;
+		grid-template-columns: 1fr 1fr;
     	background-color: ${theme.colors.brown};
     	width: 100%;
+		height: auto;
 		.image2{
-			width: 50%;
+			width: 100%;
 			object-fit: contain;
 			img{
 				width: 100%;

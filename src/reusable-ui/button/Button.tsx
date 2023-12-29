@@ -5,7 +5,7 @@ import { FaChevronRight } from "react-icons/fa6";
 
 type ButtonProps = {
     label: string,
-    version?: 1 | 2 | 3,
+    version?: number,
     className?: string
 }
 
