@@ -3,6 +3,7 @@ import Header from "./header/Header";
 import NavigationCard from "./navigationCard/NavigationCard";
 import Footer from "./footer/Footer";
 import Presentation from "./presentation/Presentation";
+import HomeContent from "./home_content/HomeContent";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
                 <div className="container">
                     <NavigationCard />
                     <Presentation />
+                    <HomeContent />
 
 
 
