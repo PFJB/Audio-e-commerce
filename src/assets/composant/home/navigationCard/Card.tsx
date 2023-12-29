@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/theme";
-import { FaChevronRight } from "react-icons/fa6";
+import Button from "../../../../reusable-ui/button/Button";
 
 interface card_props {
     picture: string,
@@ -14,9 +14,7 @@ export default function Card({ picture, title }: card_props) {
             <img src={picture} alt="" />
             <div className="description">
                 <p className="title">{title}</p>
-                <div className="shop">
-                    <p>shop</p><div><FaChevronRight /></div>
-                </div>
+                <Button className="button" label="shop" version={3} />
             </div>
         </CardStyled>
     )
@@ -29,7 +27,7 @@ const CardStyled = styled.a`
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    padding-bottom: 1.375rem;
+    padding-bottom: 0.5rem;
     width: 100%;
     height: 13.5625rem;
 
@@ -54,7 +52,6 @@ const CardStyled = styled.a`
         position: relative;
         display: grid;
         place-items: center;
-        gap: 1.0625rem;
         z-index: 2;
 
         *  {
@@ -66,21 +63,10 @@ const CardStyled = styled.a`
             color: ${theme.colors.black};
             font-size: ${theme.fonts.size.font_s2};
         }
-        .shop{
-            display: flex;
-            color: ${theme.colors.blackL};
-            font-size: ${theme.fonts.size.font_s0};
-            div{
-                display: grid;
-                place-content: center;
-                font-size: 0.625rem;
-                margin-left: 0.5rem;
-                color: ${theme.colors.brown};
-            }
-        }
+
     }
 
-    &:hover  .shop{
+    &:hover  .button{
         color: ${theme.colors.brown};
     }
 `;
