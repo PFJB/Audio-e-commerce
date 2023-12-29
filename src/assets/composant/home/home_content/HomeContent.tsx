@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/theme";
 import { useState } from "react";
+import Button from "../../../../reusable-ui/button/Button";
 
 export default function HomeContent() {
 
@@ -13,24 +14,18 @@ export default function HomeContent() {
 		if (largeur <= 425) {
 			setImage1("/images/home/mobile/image-speaker-zx7.jpg")
 			setImage("/images/home/mobile/image-earphones-yx1.jpg")
-
 			setImage2("/images/home/mobile/image-speaker-zx9.png")
-
 		}
 		if (largeur > 425 && largeur <= 768) {
 			setImage("/images/home/tablet/image-earphones-yx1.jpg")
 			setImage1("/images/home/tablet/image-speaker-zx7.jpg")
-
 			setImage2("/images/home/tablet/image-speaker-zx9.png")
 
 		}
 		if (largeur > 768) {
 			setImage1("/images/home/desktop/image-speaker-zx7.jpg")
 			setImage("/images/home/desktop/image-earphones-yx1.jpg")
-
-
 			setImage2("/images/home/desktop/image-speaker-zx9.png")
-
 		}
 	}
 
@@ -43,9 +38,16 @@ export default function HomeContent() {
 
 			<div className="pic1">
 				<div className="image2"><img src={image2} alt="" /></div>
+				<div>
+				</div>
 			</div>
+
+
 			<div className="pic2">
-				<div></div>
+				<div className="text2">
+					<p>ZX7 SPEAKER</p>
+					<Button label="see product" version={2} />
+				</div>
 				<img src={image1} alt="" />
 			</div>
 
@@ -54,7 +56,7 @@ export default function HomeContent() {
 				<div className="pic3"><img src={image} alt="" /></div>
 				<div className="text">
 					<p>YX1 EARPHONES</p>
-					<button>see product</button>
+					<Button label="see product" version={2} />
 				</div>
 			</div>
 		</HomeContentStyled>
@@ -63,26 +65,55 @@ export default function HomeContent() {
 
 
 const HomeContentStyled = styled.section`
-display: grid;
-gap: 32px;
-  width: 100%;
-  .pic1{
-    background-color: ${theme.colors.brown};
-    width: 100%;
-	.image2{
-		width: 50%;
-		object-fit: contain;
-		img{
-			width: 100%;
-			height: 100%;
+	display: grid;
+	gap: 32px;
+  	width: 100%;
+
+
+	.pic1{
+		display: grid;
+		grid-template-rows: 1fr 3fr;
+    	background-color: ${theme.colors.brown};
+    	width: 100%;
+		.image2{
+			width: 50%;
+			object-fit: contain;
+			img{
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
-  }
+
+
+
   .pic2{
+	position: relative;
     background-color: ${theme.colors.grey};
     width: 100%;
 	object-fit: contain;
+
+	.text2{
+		position: absolute;
+		top: 50%;
+		left:10%;
+		z-index: 5;
+		transform: translateY(-50%);
+		display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    
+		gap: 32px;
+
+    	p{
+        	font-size: ${theme.fonts.size.font_s5};
+			font-weight: ${theme.fonts.weigth.bold};
+
+      	}
+
+	}
 	img{
+		position: relative;
 		width: 100%;
 		height: 100%;
 	}
@@ -112,19 +143,14 @@ gap: 32px;
     	justify-content: center;
     	width: 100%;
     	height: 100%;
-    	padding-left: 24px;
+    	padding-left: 10%;
 		gap: 32px;
 		background-color: ${theme.colors.grey};
 
     	p{
         	font-size: ${theme.fonts.size.font_s5};
       	}
-      	button{
-        	font-size: ${theme.fonts.size.font_s0};
-        	background: transparent;
-        	width: 160px;
-        	height: 48px;
-      	}
+
     }
   }
 

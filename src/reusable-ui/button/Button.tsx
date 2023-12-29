@@ -52,7 +52,7 @@ const version1Style = css`
 
 const version2Style = css`
     color: ${theme.colors.black};
-    background-color: ${theme.colors.white};
+    background: transparent;
     border: 1px solid black;
     &:hover{
         color:${theme.colors.white};
