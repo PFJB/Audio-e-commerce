@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import HeadphoneCategorie from "../headphones_categorie/ContentCategory";
-import TitleCategorie from "../pages/categorie/Categorie/TitleCategorie";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import HomeContent from "./home_content/HomeContent";
@@ -16,29 +14,12 @@ export default function Home() {
     return (
         <HomeStyled>
             <Header />
-            <TitleCategorie title="headphone" />
             <div className="body">
-
-
-
-
-
-
-
                 <div className="container">
-
-                    <HeadphoneCategorie />
-
                     <NavigationCard />
-
                     <HomeContent />
-
-
                     <Presentation />
-
                 </div>
-
-
             </div>
             <Footer />
         </HomeStyled>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../assets/theme/theme";
 
-export default function TitleCategorie({ title }: { title: string }) {
+export default function TitleCategorie({ title }: { title?: string }) {
     return (
         <TitleCategorieStyled>
             {title}

@@ -8,7 +8,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<CategoryPage />} />
+      <Route path="/" element={<Home />} />
+
+      <Route path="/category/:category" element={<CategoryPage />} />
+
+
       {/* <Route path="/" element={} />
 
       {/* <Route path="*" element={<ErrorPage />} /> */}
