@@ -17,7 +17,7 @@ export default function Header() {
         <HeaderStyled className="header" $isOpen={isOpen}>
             <nav>
                 <img className="burger" onClick={open} src={BURGER} alt="burger button" />
-                <a href="/"><img className="logo" src={LOGO} alt="Logo audiophile" /></a>
+                <a className="logo" href="/"><img src={LOGO} alt="Logo audiophile" /></a>
                 <ul className="nav-list">
                     <li className="navigation_title"><Link to="/">Home</Link></li>
                     <li className="navigation_title"><Link to="/category/headphones">Headphones</Link></li>
@@ -57,6 +57,8 @@ nav {
         place-self: center;
     }
     .logo{
+        display: grid;
+        place-items: center;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);

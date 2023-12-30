@@ -113,7 +113,7 @@ img{
 @media screen and (min-width: 769px) {
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: 125px;
+    gap: clamp(50px, 2rem + 6vw,125px);
     .image{
         order: ${({ $onLeft }) => $onLeft ? "1" : "0"};
     }

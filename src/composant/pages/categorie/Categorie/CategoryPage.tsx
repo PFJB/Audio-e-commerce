@@ -4,7 +4,7 @@ import TitleCategorie from "./TitleCategorie";
 import Footer from "../../../home/footer/Footer";
 import Presentation from "../../../home/presentation/Presentation";
 import NavigationCard from "../../../home/navigationCard/NavigationCard";
-import ContentCategory from "../../../headphones_categorie/ContentCategory";
+import ContentCategory from "./ContentCategory";
 import { useParams } from "react-router-dom";
 
 export default function CategoryPage() {

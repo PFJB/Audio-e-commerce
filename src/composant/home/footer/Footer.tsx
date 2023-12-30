@@ -92,8 +92,8 @@ margin-top: 7.5rem;
 
     .nav-list li a:hover,
     .nav-list li a:focus,
-    .media_list li a:hover,
-    .media_list li a:focus{
+    .media_list li:hover,
+    .media_list li:focus{
         color: ${theme.colors.brown};
         cursor: pointer;
     }
