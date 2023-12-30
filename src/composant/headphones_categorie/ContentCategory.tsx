@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { data } from "../../assets/data";
 import ProductDescription from "../../reusable-ui/product_description/ProductDescription";
 
-export default function HeadphoneCategorie() {
+export default function ContentCategory({ category }: { category: string }) {
 
     let order = true;
 
@@ -10,7 +10,7 @@ export default function HeadphoneCategorie() {
         <HeadphoneCategorieStyled>
             {data.map((product) => {
                 order = order ? false : true;
-                if (product.category === "headphones") {
+                if (product.category === category) {
                     return <ProductDescription
                         key={product.id}
                         ad={product.ad}

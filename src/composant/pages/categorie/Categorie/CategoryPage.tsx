@@ -1,51 +1,35 @@
 import styled from "styled-components";
-import HeadphoneCategorie from "../headphones_categorie/ContentCategory";
-import TitleCategorie from "../pages/categorie/Categorie/TitleCategorie";
-import Footer from "./footer/Footer";
-import Header from "./header/Header";
-import HomeContent from "./home_content/HomeContent";
-import NavigationCard from "./navigationCard/NavigationCard";
-import Presentation from "./presentation/Presentation";
+import Header from "../../../home/header/Header";
+import TitleCategorie from "./TitleCategorie";
+import Footer from "../../../home/footer/Footer";
+import Presentation from "../../../home/presentation/Presentation";
+import NavigationCard from "../../../home/navigationCard/NavigationCard";
+import ContentCategory from "../../../headphones_categorie/ContentCategory";
 
-
-
-export default function Home() {
+export default function CategoryPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
 
     return (
-        <HomeStyled>
+        <CategoryPageStyled>
             <Header />
             <TitleCategorie title="headphone" />
             <div className="body">
-
-
-
-
-
-
-
                 <div className="container">
 
-                    <HeadphoneCategorie />
+                    <ContentCategory category="speakers" />
 
                     <NavigationCard />
-
-                    <HomeContent />
-
-
                     <Presentation />
 
                 </div>
-
-
             </div>
             <Footer />
-        </HomeStyled>
+        </CategoryPageStyled>
     )
 }
 
-const HomeStyled = styled.div`
+const CategoryPageStyled = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -68,12 +52,5 @@ height: 100%;
         gap: 7.5rem;
     }
 
-@media screen and (min-width: 26.625rem) {
 
-  
-
-}
-@media screen and (min-width: 48.0625rem) {
-    .body .l{ grid-template-columns: 1fr 1fr; }
-}
 `;
