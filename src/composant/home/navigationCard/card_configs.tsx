@@ -8,16 +8,21 @@ export const card_configs = [
         id: "1",
         picture: HEADPHONE_THUMBMAIL,
         title: "Headphones",
+        link: "/category/headphones"
     },
     {
         id: "2",
         picture: SPEAKER_THUMBMAIL,
         title: "Speakers",
+        link: "/category/speakers"
+
     },
     {
         id: "3",
         picture: EARPHONE_THUMBMAIL,
         title: "Earphones",
+        link: "/category/earphones"
+
     },
 
 ]

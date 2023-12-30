@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme/theme";
-import { refreshPage } from "../../../../utils/window";
 import NavigationCard from "../navigationCard/NavigationCard";
+import { theme } from "../../../assets/theme/theme";
+import { Link } from "react-router-dom";
 const CART = "/images/shared/desktop/icon-cart.svg"
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
@@ -17,12 +17,12 @@ export default function Header() {
         <HeaderStyled className="header" $isOpen={isOpen}>
             <nav>
                 <img className="burger" onClick={open} src={BURGER} alt="burger button" />
-                <img className="logo" onClick={refreshPage} src={LOGO} alt="Logo audiophile" />
+                <a className="logo" href="/"><img src={LOGO} alt="Logo audiophile" /></a>
                 <ul className="nav-list">
-                    <li className="navigation_title">Home</li>
-                    <li className="navigation_title">Headphones</li>
-                    <li className="navigation_title">Speakers</li>
-                    <li className="navigation_title">Earphones</li>
+                    <li className="navigation_title"><Link to="/">Home</Link></li>
+                    <li className="navigation_title"><Link to="/category/headphones">Headphones</Link></li>
+                    <li className="navigation_title"><Link to="/category/speakers">Speakers</Link></li>
+                    <li className="navigation_title"><Link to="/category/earphones">Earphones</Link></li>
                 </ul>
 
                 <img className="cart" src={CART} alt="Cart button" />
@@ -46,9 +46,9 @@ nav {
     flex-direction: row;
     align-items: center;
     position: relative;
-  
     height: 100%;
     width: min(100%, 1110px);
+    border-bottom: solid 2px hsl(0 0% 100% / 20%);
     gap: 42px;
 
     .cart{
@@ -57,6 +57,8 @@ nav {
         place-self: center;
     }
     .logo{
+        display: grid;
+        place-items: center;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -64,13 +66,15 @@ nav {
     }
     .nav-list{
         display: none;
-                text-transform: uppercase;
-        color: ${theme.colors.black};
+        text-transform: uppercase;
 
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
             letter-spacing: ${theme.fonts.letterSpacing.char_s5};
+            a{
+                color: white;
+            }
         }
         }
 
@@ -113,8 +117,8 @@ nav {
             left: auto;
             gap: 34px;
             color: white;
-            li:hover,
-            li:focus {
+            li a:hover,
+            li a:active {
                 cursor: pointer;
                 color: ${theme.colors.brown};
 

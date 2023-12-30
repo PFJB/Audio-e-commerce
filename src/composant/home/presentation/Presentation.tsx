@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/theme";
+import { theme } from "../../../assets/theme/theme";
 const MEN_DESKTOP = "/images/shared/desktop/image-best-gear.jpg"
 const MEN_TABLET = "/images/shared/tablet/image-best-gear.jpg"
 const MEN_MOBILE = "/images/shared/mobile/image-best-gear.jpg"

@@ -8,8 +8,8 @@ export default function NavigationCard() {
 
     return (
         <NavigationCardStyled>
-            {cardConfigs.map(({ picture, title, id }) => {
-                return <Card key={id} picture={picture} title={title} />
+            {cardConfigs.map(({ picture, title, id, link }) => {
+                return <Card key={id} picture={picture} title={title} link={link} />
             })}
         </NavigationCardStyled>
     )
