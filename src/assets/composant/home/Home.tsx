@@ -5,22 +5,13 @@ import Footer from "./footer/Footer";
 import Presentation from "./presentation/Presentation";
 import HomeContent from "./home_content/HomeContent";
 import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
+import HeadphoneCategorie from "../headphones_categorie/HeadphoneCategorie";
 
 
 export default function Home() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
 
-    const tab = {
-        title: "XX99 Mark II Headphones",
-        ad: "nouveau",
-        description: "gbeifusieuvgciseqzdqzdqzdqzd qz dqz   qzdqzdqdqdqd qdqzdqd q qd qzdqzdqzduvgcisuev",
-        image: "../../../../public/images/product-zx7-speaker/desktop/image-category-page-preview.jpg",
-        button: {
-            label: "SHOP",
-            version: 1
-        }
-    }
     return (
         <HomeStyled>
             <Header />
@@ -34,12 +25,7 @@ export default function Home() {
 
                 <div className="container">
 
-                    <ProductDescription
-                        ad={tab.ad}
-                        button={tab.button}
-                        image={tab.image}
-                        description={tab.description}
-                        title={tab.title} />
+                    <HeadphoneCategorie />
 
                     <NavigationCard />
                     <Presentation />

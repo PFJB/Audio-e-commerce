@@ -2,45 +2,30 @@ import styled from "styled-components";
 import { theme } from "../../../theme/theme";
 import { useState } from "react";
 import Button from "../../../../reusable-ui/button/Button";
+import {
+	HOME_EARPHONE_DESKTOP, HOME_EARPHONE_MOBILE,
+	HOME_EARPHONE_TABLET, HOME_PRESENTATION_SPEAKER_DESKTOP, HOME_PRESENTATION_SPEAKER_MOBILE, HOME_PRESENTATION_SPEAKER_TABLET, HOME_SPEAKER_DESKTOP,
+	HOME_SPEAKER_MOBILE, HOME_SPEAKER_TABLET
+} from "../../../../enums/product";
+import ProductDescription from "../../../../reusable-ui/product_description/ProductDescription";
 
 export default function HomeContent() {
-
-	const [image, setImage] = useState("")
-	const [image1, setImage1] = useState("")
-	const [image2, setImage2] = useState("")
-
-	const GetImageUrl = () => {
-		const largeur = window.innerWidth
-		if (largeur <= 425) {
-			setImage1("/images/home/mobile/image-speaker-zx7.jpg")
-			setImage("/images/home/mobile/image-earphones-yx1.jpg")
-			setImage2("/images/home/mobile/image-speaker-zx9.png")
-		}
-		if (largeur > 425 && largeur <= 768) {
-			setImage("/images/home/tablet/image-earphones-yx1.jpg")
-			setImage1("/images/home/tablet/image-speaker-zx7.jpg")
-			setImage2("/images/home/tablet/image-speaker-zx9.png")
-
-		}
-		if (largeur > 768) {
-			setImage1("/images/home/desktop/image-speaker-zx7.jpg")
-			setImage("/images/home/desktop/image-earphones-yx1.jpg")
-			setImage2("/images/home/desktop/image-speaker-zx9.png")
-		}
-	}
-
-	window.onload = GetImageUrl
-	window.onresize = GetImageUrl
-
-
 
 	return (
 		<HomeContentStyled>
 
-			<div className="pic1">
-
-
-			</div>
+			<ProductDescription
+				className="descriptionModified"
+				title="ZX9 SPEAKER"
+				description="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
+				button={{ label: "see product", version: 2 }}
+				image={{
+					mobile: HOME_PRESENTATION_SPEAKER_MOBILE,
+					tablet: HOME_PRESENTATION_SPEAKER_TABLET,
+					desktop: HOME_PRESENTATION_SPEAKER_DESKTOP
+				}}
+				onLeft={false}
+			/>
 
 
 			<div className="pic2">
@@ -48,12 +33,21 @@ export default function HomeContent() {
 					<p>ZX7 SPEAKER</p>
 					<Button label="see product" version={2} />
 				</div>
-				<img src={image1} alt="" />
+				<picture>
+					<source media="(min-width: 769px)" srcSet={HOME_SPEAKER_DESKTOP} />
+					<source media="(min-width: 429px)" srcSet={HOME_SPEAKER_TABLET} />
+					<img src={HOME_SPEAKER_MOBILE} alt={"image speaker zx7"} />
+				</picture>
 			</div>
 
-
 			<div className="pic4">
-				<div className="pic3"><img src={image} alt="" /></div>
+				<div className="pic3">
+					<picture>
+						<source media="(min-width: 769px)" srcSet={HOME_EARPHONE_DESKTOP} />
+						<source media="(min-width: 429px)" srcSet={HOME_EARPHONE_TABLET} />
+						<img src={HOME_EARPHONE_MOBILE} alt={"image earphones yx1"} />
+					</picture>
+				</div>
 				<div className="text">
 					<p>YX1 EARPHONES</p>
 					<Button label="see product" version={2} />
@@ -68,6 +62,27 @@ const HomeContentStyled = styled.section`
 	display: grid;
 	gap: 32px;
   	width: 100%;
+
+
+.descriptionModified{
+	background-color: orange;
+	.image{
+		position: relative;
+		
+	
+		height: 493px;
+		width: 100%;
+		img{
+			bottom: 0;
+			left: 0;
+			height: 50%;
+			width: auto;
+		}
+	}
+}
+
+
+
 
 
 	.pic1{

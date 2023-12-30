@@ -4,24 +4,34 @@ import { theme } from "../../assets/theme/theme";
 
 
 type ProductDescriptionProps = {
-    image: string
+    className?: string,
+    image: {
+        mobile: string,
+        tablet: string,
+        desktop: string
+    }
     title: string,
-    ad: string,
+    ad?: boolean,
     description: string,
     button: {
         label: string,
         version: number
-    }
+    },
+    onLeft?: boolean
 }
 
-export default function ProductDescription({ image, title, ad, description, button }: ProductDescriptionProps) {
+export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true }: ProductDescriptionProps) {
     return (
-        <ProductDescriptionStyled>
-            <div className="image">
-                <img src={image} alt="" />
+        <ProductDescriptionStyled className={className} $onLeft={onLeft}>
+            <div className="image" >
+                <picture>
+                    <source media="(min-width: 769px)" srcSet={image.desktop && image.desktop} />
+                    <source media="(min-width: 429px)" srcSet={image.tablet && image.tablet} />
+                    <img src={image.mobile && image.mobile} alt={title} />
+                </picture>
             </div>
             <div className="description">
-                <p className="ad">{ad}</p>
+                <p className="ad">{ad && "NEW PRODUCT"}</p>
                 <h2 className="title">{title}</h2>
                 <p className="text">{description}</p>
                 <Button label={button.label} version={button.version} />
@@ -37,6 +47,7 @@ const ProductDescriptionStyled = styled.div`
 display: grid;
 grid-template-rows: auto auto;
 grid-column: 1fr;
+position: relative;
 width: 100%;
 row-gap: 32px;
 place-items: center;
@@ -101,8 +112,12 @@ img{
 
 @media screen and (min-width: 769px) {
 	grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 125px;
+    .image{
+        order: ${({ $onLeft }) => $onLeft ? "1" : "0"};
+    }
     .description{
-        padding-left: clamp(45px,10vw,125px);
         padding-right: 15px;
         place-items: start;
         text-align: start;

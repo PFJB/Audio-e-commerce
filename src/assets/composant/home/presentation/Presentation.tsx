@@ -1,23 +1,20 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme/theme";
+const MEN_DESKTOP = "/images/shared/desktop/image-best-gear.jpg"
+const MEN_TABLET = "/images/shared/tablet/image-best-gear.jpg"
+const MEN_MOBILE = "/images/shared/mobile/image-best-gear.jpg"
 
 export default function Presentation() {
 
-    const [image, setImage] = useState("/images/shared/mobile/image-best-gear.jpg")
-
-    const GetImageUrl = () => {
-        const largeur = window.innerWidth
-        if (largeur <= 425) setImage("/images/shared/mobile/image-best-gear.jpg")
-        if (largeur > 425 && largeur <= 768) setImage("/images/shared/tablet/image-best-gear.jpg")
-        if (largeur > 768) setImage("/images/shared/desktop/image-best-gear.jpg")
-    }
-
-    window.onresize = GetImageUrl
-
     return (
         <PresentationStyled>
-            <div className="picture"><img src={image} alt="men with a headphone" /></div>
+            <div className="picture">
+                <picture>
+                    <source media="(min-width: 769px)" srcSet={MEN_DESKTOP} />
+                    <source media="(min-width: 426px)" srcSet={MEN_TABLET} />
+                    <img src={MEN_MOBILE} alt="men with a headphone" />
+                </picture>
+            </div>
             <div className="text">
                 <h2>Bringing you the <span>best</span> audio gear</h2>
                 <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones,
