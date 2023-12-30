@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { refreshPage } from "../../../utils/window";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
+import { Link } from "react-router-dom";
 const CART = "/images/shared/desktop/icon-cart.svg"
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
@@ -19,10 +20,10 @@ export default function Header() {
                 <img className="burger" onClick={open} src={BURGER} alt="burger button" />
                 <img className="logo" onClick={refreshPage} src={LOGO} alt="Logo audiophile" />
                 <ul className="nav-list">
-                    <li className="navigation_title">Home</li>
-                    <li className="navigation_title">Headphones</li>
-                    <li className="navigation_title">Speakers</li>
-                    <li className="navigation_title">Earphones</li>
+                    <li className="navigation_title"><Link className="link" to="/">Home</Link></li>
+                    <li className="navigation_title"><Link className="link" to="/category/headphones">Headphones</Link></li>
+                    <li className="navigation_title"><Link className="link" to="/category/speakers">Speakers</Link></li>
+                    <li className="navigation_title"><Link className="link" to="/category/earphones">Earphones</Link></li>
                 </ul>
 
                 <img className="cart" src={CART} alt="Cart button" />
@@ -64,13 +65,15 @@ nav {
     }
     .nav-list{
         display: none;
-                text-transform: uppercase;
-        color: ${theme.colors.black};
+        text-transform: uppercase;
 
         .navigation_title{
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
             letter-spacing: ${theme.fonts.letterSpacing.char_s5};
+            .link{
+                color: white;
+            }
         }
         }
 
@@ -113,8 +116,8 @@ nav {
             left: auto;
             gap: 34px;
             color: white;
-            li:hover,
-            li:focus {
+            li .link:hover,
+            li .link:focus {
                 cursor: pointer;
                 color: ${theme.colors.brown};
 
