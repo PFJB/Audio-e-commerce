@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
-import { data } from "../../data";
+import { data } from "../../assets/data";
+import ProductDescription from "../../reusable-ui/product_description/ProductDescription";
 
 export default function HeadphoneCategorie() {
 

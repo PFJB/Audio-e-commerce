@@ -1,6 +1,6 @@
-import Home from './assets/composant/home/Home'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import Home from './composant/home/Home'
 
 
 function App() {

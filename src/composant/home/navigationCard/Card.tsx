@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/theme";
-import Button from "../../../../reusable-ui/button/Button";
+import Button from "../../../reusable-ui/button/Button";
+import { theme } from "../../../assets/theme/theme";
+
 
 interface card_props {
     picture: string,

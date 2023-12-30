@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/theme";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { refreshPage } from "../../../../utils/window";
+import { refreshPage } from "../../../utils/window";
+import { theme } from "../../../assets/theme/theme";
 const LOGO = "/images/shared/desktop/logo.svg"
 
 export default function Footer() {

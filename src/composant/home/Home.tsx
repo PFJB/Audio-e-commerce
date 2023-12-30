@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import Header from "./header/Header";
-import NavigationCard from "./navigationCard/NavigationCard";
-import Footer from "./footer/Footer";
-import Presentation from "./presentation/Presentation";
-import HomeContent from "./home_content/HomeContent";
-import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
 import HeadphoneCategorie from "../headphones_categorie/HeadphoneCategorie";
+import TitleCategorie from "../pages/categorie/TitleCategorie";
+import Footer from "./footer/Footer";
+import Header from "./header/Header";
+import HomeContent from "./home_content/HomeContent";
+import NavigationCard from "./navigationCard/NavigationCard";
+import Presentation from "./presentation/Presentation";
+
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     return (
         <HomeStyled>
             <Header />
+            <TitleCategorie title="headphone" />
             <div className="body">
 
 

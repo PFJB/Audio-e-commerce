@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme/theme";
-import { refreshPage } from "../../../../utils/window";
+import { refreshPage } from "../../../utils/window";
 import NavigationCard from "../navigationCard/NavigationCard";
+import { theme } from "../../../assets/theme/theme";
 const CART = "/images/shared/desktop/icon-cart.svg"
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
@@ -46,9 +46,9 @@ nav {
     flex-direction: row;
     align-items: center;
     position: relative;
-  
     height: 100%;
     width: min(100%, 1110px);
+    border-bottom: solid 2px hsl(0 0% 100% / 20%);
     gap: 42px;
 
     .cart{
