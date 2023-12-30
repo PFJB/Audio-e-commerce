@@ -5,23 +5,22 @@ import Footer from "../../../home/footer/Footer";
 import Presentation from "../../../home/presentation/Presentation";
 import NavigationCard from "../../../home/navigationCard/NavigationCard";
 import ContentCategory from "../../../headphones_categorie/ContentCategory";
+import { useParams } from "react-router-dom";
 
 export default function CategoryPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
+    const { category } = useParams()
 
     return (
         <CategoryPageStyled>
             <Header />
-            <TitleCategorie title="headphone" />
+            <TitleCategorie title={category} />
             <div className="body">
                 <div className="container">
-
-                    <ContentCategory category="speakers" />
-
+                    <ContentCategory category={category} />
                     <NavigationCard />
                     <Presentation />
-
                 </div>
             </div>
             <Footer />
