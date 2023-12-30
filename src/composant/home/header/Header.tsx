@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { refreshPage } from "../../../utils/window";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
 import { Link } from "react-router-dom";
@@ -18,12 +17,12 @@ export default function Header() {
         <HeaderStyled className="header" $isOpen={isOpen}>
             <nav>
                 <img className="burger" onClick={open} src={BURGER} alt="burger button" />
-                <img className="logo" onClick={refreshPage} src={LOGO} alt="Logo audiophile" />
+                <a href="/"><img className="logo" src={LOGO} alt="Logo audiophile" /></a>
                 <ul className="nav-list">
-                    <li className="navigation_title"><Link className="link" to="/">Home</Link></li>
-                    <li className="navigation_title"><Link className="link" to="/category/headphones">Headphones</Link></li>
-                    <li className="navigation_title"><Link className="link" to="/category/speakers">Speakers</Link></li>
-                    <li className="navigation_title"><Link className="link" to="/category/earphones">Earphones</Link></li>
+                    <li className="navigation_title"><Link to="/">Home</Link></li>
+                    <li className="navigation_title"><Link to="/category/headphones">Headphones</Link></li>
+                    <li className="navigation_title"><Link to="/category/speakers">Speakers</Link></li>
+                    <li className="navigation_title"><Link to="/category/earphones">Earphones</Link></li>
                 </ul>
 
                 <img className="cart" src={CART} alt="Cart button" />
@@ -71,7 +70,7 @@ nav {
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
             letter-spacing: ${theme.fonts.letterSpacing.char_s5};
-            .link{
+            a{
                 color: white;
             }
         }
@@ -116,8 +115,8 @@ nav {
             left: auto;
             gap: 34px;
             color: white;
-            li .link:hover,
-            li .link:focus {
+            li a:hover,
+            li a:active {
                 cursor: pointer;
                 color: ${theme.colors.brown};
 

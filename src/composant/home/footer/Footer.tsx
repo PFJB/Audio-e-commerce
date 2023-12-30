@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { refreshPage } from "../../../utils/window";
 import { theme } from "../../../assets/theme/theme";
 const LOGO = "/images/shared/desktop/logo.svg"
 
@@ -10,12 +9,12 @@ export default function Footer() {
     return (
         <FooterStyled>
             <div className="container">
-                <div className="logo"><img onClick={refreshPage} src={LOGO} alt="" /></div>
+                <a className="logo" href=""><img src={LOGO} alt="" /></a>
                 <ul className="nav-list">
-                    <li className="navigation_title">Home</li>
-                    <li className="navigation_title">Headphones</li>
-                    <li className="navigation_title">Speakers</li>
-                    <li className="navigation_title">Earphones</li>
+                    <li className="navigation_title"><a href="/">Home</a></li>
+                    <li className="navigation_title"><a href="/category/headphones">Headphones</a></li>
+                    <li className="navigation_title"><a href="/category/speakers">Speakers</a></li>
+                    <li className="navigation_title"><a href="/category/earphones">Earphones</a></li>
                 </ul>
                 <p className="description">Audiophile is an all in one stop to fulfill your audio needs.
                     We're a small team of music lovers and sound specialists who are
@@ -63,6 +62,8 @@ margin-top: 7.5rem;
             font-size: ${theme.fonts.size.font_s0};
             font-weight: ${theme.fonts.weigth.bold};
             letter-spacing: ${theme.fonts.letterSpacing.char_s5};
+    
+            a {color: white;}
         }
     }
 
@@ -89,10 +90,10 @@ margin-top: 7.5rem;
         }
     }
 
-    .nav-list li:hover,
-    .nav-list li:focus,
-    .media_list li:hover,
-    .media_list li:focus{
+    .nav-list li a:hover,
+    .nav-list li a:focus,
+    .media_list li a:hover,
+    .media_list li a:focus{
         color: ${theme.colors.brown};
         cursor: pointer;
     }

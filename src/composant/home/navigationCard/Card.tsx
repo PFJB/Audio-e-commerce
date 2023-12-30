@@ -2,17 +2,17 @@ import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
 
-
 interface card_props {
     picture: string,
-    title: string
+    title: string,
+    link: string
 }
 
-export default function Card({ picture, title }: card_props) {
+export default function Card({ picture, title, link = "/" }: card_props) {
     return (
-        <CardStyled href={"/"}>
+        <CardStyled href={link}>
             <div className="background"></div>
-            <img src={picture} alt="" />
+            <img src={picture} alt={title} />
             <div className="description">
                 <p className="title">{title}</p>
                 <Button className="button" label="shop" version={3} />
