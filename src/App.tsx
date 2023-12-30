@@ -1,7 +1,7 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './composant/home/Home'
-import CategoryPage from './composant/pages/categorie/Categorie/CategoryPage'
+import CategoryPage from './composant/pages/categorie/CategoryPage'
 
 
 function App() {
