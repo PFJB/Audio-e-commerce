@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme/theme";
 import { refreshPage } from "../../../../utils/window";
+import NavigationCard from "../navigationCard/NavigationCard";
 const CART = "/images/shared/desktop/icon-cart.svg"
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
@@ -23,8 +24,10 @@ export default function Header() {
                     <li className="navigation_title">Speakers</li>
                     <li className="navigation_title">Earphones</li>
                 </ul>
+
                 <img className="cart" src={CART} alt="Cart button" />
             </nav>
+            {isOpen && <ul className="nav-card"><NavigationCard /></ul>}
         </HeaderStyled>
     )
 }
@@ -37,6 +40,7 @@ const HeaderStyled = styled.header`
     width: 100%;
     background-color: black;
     padding: 0 24px;
+
 nav {
     display: flex;
     flex-direction: row;
@@ -59,13 +63,8 @@ nav {
         cursor: pointer;
     }
     .nav-list{
-        display: ${({ $isOpen }) => $isOpen ? "flex" : "none"};
-        position: absolute;
-        width: 100%;
-        height: 340px;
-        left: 0;
-        top: 100%;
-        text-transform: uppercase;
+        display: none;
+                text-transform: uppercase;
         color: ${theme.colors.black};
 
         .navigation_title{
@@ -73,8 +72,22 @@ nav {
             font-weight: ${theme.fonts.weigth.bold};
             letter-spacing: ${theme.fonts.letterSpacing.char_s5};
         }
-    }
+        }
+
 }
+    .nav-card{
+        display: ${({ $isOpen }) => $isOpen ? "block" : "none"};
+        position: absolute;
+        padding: 32px 24px 35px 24px;
+        z-index: 200;
+        border-bottom: solid 1px black;
+        height: auto;
+        background-color: white;
+        left: 0;
+        right: 0;
+        top: 90px;
+            
+    }
 
 @media screen and (min-width: 425px) {
     nav .logo{
@@ -86,6 +99,8 @@ nav {
 
 @media screen and (min-width: 769px) {
     height: 97px; 
+
+       .nav-card{display:none;}
     nav {
         .burger{ display: none; }
 
