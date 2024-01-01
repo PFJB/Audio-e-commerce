@@ -26,13 +26,13 @@ export default function CategoryPage() {
                         title={product.name}
                         description={product.description}
                         image={{
-                            mobile: product.image?.mobile,
-                            tablet: product.image?.tablet,
-                            desktop: product.image?.desktop
+                            mobile: product.image?.mobile ?? "",
+                            tablet: product.image?.tablet ?? "",
+                            desktop: product.image?.desktop ?? ""
                         }}
                         onLeft={false}
                     />}
-                    <Feature />
+                    <Feature feature={product?.features} listBox={product?.includes} />
                     {/* feature
                     gallery */}
                     <OtherChoice />

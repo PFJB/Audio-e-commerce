@@ -8,6 +8,11 @@ export default function ContentCategory({ category }: { category?: string }) {
     let order = true;
     const navigate = useNavigate()
 
+    const navigation = (destination: string) => {
+        window.scrollTo(0, 0);
+        navigate(`/product-detail/${destination}`)
+    }
+
     type objectCategory = {
         id: number,
         name: string,
@@ -71,7 +76,7 @@ export default function ContentCategory({ category }: { category?: string }) {
                         }}
                         title={product.name}
                         button={{ label: "see product", version: 1 }}
-                        onClick={() => navigate(`/product-detail/${product.slug}`)}
+                        onClick={() => navigation(product.slug)}
                         onLeft={order}
                     />
                 }
