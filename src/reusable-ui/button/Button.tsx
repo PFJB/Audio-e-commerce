@@ -9,9 +9,9 @@ type ButtonProps = {
     className?: string
 }
 
-export default function Button({ label, version = 1, className }: ButtonProps) {
+export default function Button({ label, version = 1, className, onClick }: ButtonProps) {
     return (
-        <ButtonStyled className={className} version={version}>
+        <ButtonStyled className={className} version={version} onClick={onClick}>
             {label} {version === 3 && <span><FaChevronRight /></span>}
         </ButtonStyled>
     )
