@@ -32,8 +32,8 @@ export default function ProductDetail({ className, image, title, ad, description
         <ProductDetailStyled className={className} $onLeft={onLeft}>
             <div className="image" >
                 <picture>
-                    <source media="(min-width: 769px)" srcSet={image.desktop && image.desktop} />
-                    <source media="(min-width: 429px)" srcSet={image.tablet && image.tablet} />
+                    <source media="(min-width: 1024px)" srcSet={image.desktop && image.desktop} />
+                    <source media="(min-width: 769px)" srcSet={image.tablet && image.tablet} />
                     <img src={image.mobile && image.mobile} alt={title} />
                 </picture>
             </div>
@@ -151,14 +151,17 @@ img{
     }
 
 }
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 769px) {
     row-gap: 52px;
+	grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: auto;
+    gap: clamp(50px, 2rem + 6vw,125px);
 
     .description .ad{ margin-bottom: 16px; }
     .description .title{ margin-bottom: 32px; }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: clamp(50px, 2rem + 6vw,125px);

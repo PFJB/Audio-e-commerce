@@ -18,7 +18,7 @@ type ProductDescriptionProps = {
         version: number
     },
     onLeft?: boolean,
-    onClick: () => {}
+    onClick: () => void
 }
 
 export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, onClick }: ProductDescriptionProps) {

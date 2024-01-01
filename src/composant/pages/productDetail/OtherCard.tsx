@@ -2,11 +2,13 @@ import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
 import { useNavigate } from "react-router-dom";
+import { scrollToTopSmooth } from "../../../utils/window";
 
 export default function OtherCard({ product }) {
 
     const navigate = useNavigate()
     const navigateTo = (slug: string) => {
+        scrollToTopSmooth()
         navigate(`/product-detail/${slug}`)
     }
 
@@ -52,5 +54,6 @@ const OtherCardStyled = styled.div`
             height: auto;
         }
     }
-    
+
+
 `;

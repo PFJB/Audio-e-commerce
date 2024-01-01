@@ -7,7 +7,7 @@ type ButtonProps = {
     label: string,
     version?: number,
     className?: string,
-    onClick: () => void,
+    onClick?: () => void,
 }
 
 export default function Button({ label, version = 1, className, onClick }: ButtonProps) {

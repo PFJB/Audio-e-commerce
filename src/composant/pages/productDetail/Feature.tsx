@@ -75,6 +75,7 @@ const FeatureStyled = styled.section`
         .box{ grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 769px){
+        grid-template-rows: auto;
         grid-template-columns: 2fr 1fr;
         .box{ grid-template-columns: 1fr; }
     }
