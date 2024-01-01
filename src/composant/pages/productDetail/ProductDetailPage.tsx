@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import OtherChoice from "./OtherChoice";
 import ProductDetail from "./ProductDetail";
 import { data } from "../../../assets/data";
+import Feature from "./Feature";
 
 export default function CategoryPage() {
 
@@ -31,7 +32,7 @@ export default function CategoryPage() {
                         }}
                         onLeft={false}
                     />}
-
+                    <Feature />
                     {/* feature
                     gallery */}
                     <OtherChoice />

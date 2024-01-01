@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { data } from "../../../assets/data";
 import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ContentCategory({ category }: { category?: string }) {
 
