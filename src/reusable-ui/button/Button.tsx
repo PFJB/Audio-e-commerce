@@ -6,7 +6,8 @@ import { FaChevronRight } from "react-icons/fa6";
 type ButtonProps = {
     label: string,
     version?: number,
-    className?: string
+    className?: string,
+    onClick: () => void,
 }
 
 export default function Button({ label, version = 1, className, onClick }: ButtonProps) {

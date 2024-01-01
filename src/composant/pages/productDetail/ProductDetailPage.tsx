@@ -36,6 +36,7 @@ export default function CategoryPage() {
                             desktop: product.image?.desktop ?? ""
                         }}
                         onLeft={false}
+                        price={product.price}
                     />}
                     <Feature feature={product?.features} listBox={product?.includes} />
                     <GalleryDetail
@@ -55,7 +56,7 @@ export default function CategoryPage() {
                             mobile: product?.gallery?.third.mobile
                         }}
                     />
-                    <OtherChoice />
+                    <OtherChoice product={product} />
                     <NavigationCard />
                     <Presentation />
                 </div>

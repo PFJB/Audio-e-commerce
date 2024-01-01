@@ -1,17 +1,24 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
+import { useNavigate } from "react-router-dom";
 
-export default function OtherCard() {
+export default function OtherCard({ product }) {
+
+    const navigate = useNavigate()
+    const navigateTo = (slug: string) => {
+        navigate(`/product-detail/${slug}`)
+    }
+
     return (
         <OtherCardStyled>
             <picture>
-                <source media="(min-width: 769px)" srcSet="\images\shared\desktop\image-zx7-speaker.jpg" />
-                <source media="(min-width: 600px)" srcSet="\images\shared\tablet\image-zx7-speaker.jpg" />
-                <img src="\images\shared\mobile\image-zx7-speaker.jpg" alt="" /></picture>
+                <source media="(min-width: 769px)" srcSet={product.image.desktop} />
+                <source media="(min-width: 600px)" srcSet={product.image.tablet} />
+                <img src={product.image.tablet} alt={product.name} /></picture>
             <div className="description">
-                <p>ZX9 SPEAKER</p>
-                <Button label='see product' version={1} />
+                <p>{product.name}</p>
+                <Button label='see product' version={1} onClick={() => navigateTo(product.slug)} />
             </div>
         </OtherCardStyled>
     )
