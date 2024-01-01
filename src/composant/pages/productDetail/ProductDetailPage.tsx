@@ -8,6 +8,7 @@ import OtherChoice from "./OtherChoice";
 import ProductDetail from "./ProductDetail";
 import { data } from "../../../assets/data";
 import Feature from "./Feature";
+import GalleryDetail from "./GalleryDetail";
 
 export default function CategoryPage() {
 
@@ -33,8 +34,23 @@ export default function CategoryPage() {
                         onLeft={false}
                     />}
                     <Feature feature={product?.features} listBox={product?.includes} />
-                    {/* feature
-                    gallery */}
+                    <GalleryDetail
+                        first={{
+                            desktop: product?.gallery?.first.desktop,
+                            tablet: product?.gallery?.first.tablet,
+                            mobile: product?.gallery?.first.mobile
+                        }}
+                        second={{
+                            desktop: product?.gallery?.second.desktop,
+                            tablet: product?.gallery?.second.tablet,
+                            mobile: product?.gallery?.second.mobile
+                        }}
+                        third={{
+                            desktop: product?.gallery?.third.desktop,
+                            tablet: product?.gallery?.third.tablet,
+                            mobile: product?.gallery?.third.mobile
+                        }}
+                    />
                     <OtherChoice />
                     <NavigationCard />
                     <Presentation />
