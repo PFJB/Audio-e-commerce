@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Home from './composant/home/Home'
+import ProductDetail from './composant/pages/productDetail/ProductDetail.tsx'
 import CategoryPage from './composant/pages/categorie/CategoryPage'
 
 
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<ProductDetail />} />
 
       <Route path="/category/:category" element={<CategoryPage />} />
 

@@ -4,6 +4,7 @@ import Footer from "../../home/footer/Footer";
 import Presentation from "../../home/presentation/Presentation";
 import NavigationCard from "../../home/navigationCard/NavigationCard";
 import { useParams } from "react-router-dom";
+import OtherChoice from "./OtherChoice";
 
 export default function CategoryPage() {
 
@@ -15,6 +16,8 @@ export default function CategoryPage() {
             <Header />
             <div className="body">
                 <div className="container">
+
+                    <OtherChoice />
                     <NavigationCard />
                     <Presentation />
                 </div>
