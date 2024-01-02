@@ -34,7 +34,6 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
     });
 
 
-
     return (
         <ProductDetailStyled className={className} $onLeft={onLeft}>
             <div className="image" >
@@ -55,7 +54,11 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
                         <div>{count}</div>
                         <button onClick={plus}>+</button>
                     </div>
-                    <Button label="add to cart" version={1} onClick={() => { addToCart(id, count) }} />
+                    <Button
+                        label="add to cart"
+                        version={1}
+                        onClick={() => { count !== 0 && addToCart(id, count, price) }}
+                    />
                 </div>
             </div>
 

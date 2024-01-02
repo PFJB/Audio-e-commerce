@@ -11,7 +11,7 @@ import CartContext from './context/CartContext.tsx'
 function App() {
 
   const [cart, setCart] = useState([])
-  const addToCart = (id, quantity) => {
+  const addToCart = (id, quantity, price) => {
     const copy = deepCopyArray(cart)
     const alreadyInCart = copy.find((product) => product.id === id)
 
@@ -20,7 +20,7 @@ function App() {
       setCart(copy)
       return
     }
-    const newProduct = { id: id, quantity: quantity }
+    const newProduct = { id: id, quantity: quantity, price: price }
     copy.push(newProduct)
     setCart(copy)
   }

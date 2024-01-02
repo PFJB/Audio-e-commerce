@@ -10,16 +10,24 @@ import { formatPrice } from "../../../utils/math";
 export default function Cart() {
 
     const { delToCart, cart, resetCart } = useContext(CartContext)
+    console.log()
+    const sum = (type: "quantity" | "price") => {
+        let sum = 0
+        cart.map((product) => {
+            if (type === "quantity") sum += product.quantity
+            if (type === "price") sum += product.price * product.quantity
+        })
+        return type === "quantity" ? sum : formatPrice(sum)
+    }
 
     return (
         <CartStyled>
             <div className="header">
-                <p>{"cart (1)"}</p>
+                <p>cart ({sum("quantity")})</p>
                 <button onClick={resetCart}>remove all</button>
             </div>
             <div className="cart_product">
                 {cart && cart.map((product) => {
-
                     const find = data.find((d) => d.id === product.id)
                     if (find) {
                         return <CartCard
@@ -30,16 +38,12 @@ export default function Cart() {
                             quantity={product.quantity}
                         />
                     }
-
-
-                })
-                }
-
+                })}
             </div>
             <div className="">
                 <div className="price_cart">
                     <p className="total">total</p>
-                    <p className="number">1684.12$</p>
+                    <p className="number">{sum("price")}</p>
                 </div>
                 <Button className="button" label="checkout" version={1} />
             </div>
