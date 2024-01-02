@@ -6,10 +6,15 @@ import Home from './composant/home/Home.tsx'
 import { useState } from 'react'
 import { deepCopyArray } from './utils/arrays.tsx'
 import CartContext from './context/CartContext.tsx'
+import CheckoutPage from './composant/pages/checkout/CheckoutPage.tsx'
 
 function App() {
 
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
   const [cart, setCart] = useState([])
+
+
   const addToCart = (id, quantity, price) => {
     const copy = deepCopyArray(cart)
     const alreadyInCart = copy.find((product) => product.id === id)
@@ -37,27 +42,26 @@ function App() {
   }
 
   const resetCart = () => { setCart([]) }
-
-
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
-  const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
   const openNav = () => { setIsNavOpen(isNavOpen ? false : true) }
   const openCart = () => { setIsCartOpen(isCartOpen ? false : true) }
 
 
   const cartContext = {
-    addToCart, plusMinusCart, cart, setCart, resetCart, isNavOpen, setIsNavOpen,
-    isCartOpen, setIsCartOpen, openNav, openCart
+    addToCart, plusMinusCart, cart,
+    setCart, resetCart, isNavOpen,
+    setIsNavOpen, isCartOpen, setIsCartOpen,
+    openNav, openCart
   }
+
   return (
     <CartContext.Provider value={cartContext}>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<CheckoutPage />} />
         <Route path="/category/:category" element={<CategoryPage />} />
         <Route path="/product-detail/:slug" element={<ProductDetail />} />
-        {/* <Route path="/" element={} />
+        <Route path="/checkout" element={<CheckoutPage />} />
 
-      {/* <Route path="*" element={<ErrorPage />} /> */}
+        {/* <Route path="*" element={<ErrorPage />} /> */}
       </ Routes>
     </CartContext.Provider>
   )
