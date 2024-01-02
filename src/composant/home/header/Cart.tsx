@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
+import CartCard from "./CartCard";
 
 export default function Cart() {
     return (
@@ -9,11 +10,13 @@ export default function Cart() {
                 <p>{"cart (1)"}</p>
                 <button>remove all</button>
             </div>
-            <div>
-
+            <div className="cart_product">
+                <CartCard />
+                <CartCard />
+                <CartCard />
             </div>
             <div className="">
-                <div className="price">
+                <div className="price_cart">
                     <p className="total">total</p>
                     <p className="number">1684.12$</p>
                 </div>
@@ -28,10 +31,11 @@ export default function Cart() {
 const CartStyled = styled.div`
 
     position: absolute;
-    width: 100%;
+    width: min(100%, 377px);
     z-index: 5;
     background-color: white;
     top: 100%;
+    right: 0;
     padding: 32px 28px ;
     border: 1px solid black;
 
@@ -40,7 +44,6 @@ const CartStyled = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: 60px;
         p{
             text-transform: uppercase;
             color: ${theme.colors.black};
@@ -63,14 +66,12 @@ const CartStyled = styled.div`
         }
     }
 
-    .price{
+    .price_cart{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 24px 0;
-        border-top: solid 1px black;
-        color: red;
+        padding-bottom: 24px;
 
         .number{
             text-transform: uppercase;
@@ -85,6 +86,12 @@ const CartStyled = styled.div`
             line-height: ${theme.fonts.lineSpace.line_s2};
             font-weight: ${theme.fonts.weigth.medium};
         }
+    }
+
+    .cart_product{
+        display: grid;
+        gap: 24px;
+        margin: 32px 0;
     }
 
     .button{
