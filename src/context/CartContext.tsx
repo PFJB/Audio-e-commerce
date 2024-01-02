@@ -2,10 +2,16 @@ import { createContext } from "react";
 
 const CartContext = createContext({
     addToCart: () => { },
-    delToCart: () => { },
+    plusMinusCart: () => { },
     cart: [],
     setCart: () => { },
     resetCart: () => { },
+    isNavOpen: false,
+    setIsNavOpen: () => { },
+    isCartOpen: false,
+    setIsCartOpen: () => { },
+    openNav: () => { },
+    openCart: () => { }
 })
 
 export default CartContext

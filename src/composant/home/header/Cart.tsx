@@ -9,7 +9,7 @@ import { formatPrice } from "../../../utils/math";
 
 export default function Cart() {
 
-    const { delToCart, cart, resetCart } = useContext(CartContext)
+    const { cart, resetCart } = useContext(CartContext)
     console.log()
     const sum = (type: "quantity" | "price") => {
         let sum = 0
@@ -32,6 +32,7 @@ export default function Cart() {
                     if (find) {
                         return <CartCard
                             key={product.id}
+                            id={product.id}
                             image={find.cart}
                             price={formatPrice(find.price)}
                             title={find.name}
@@ -58,8 +59,9 @@ const CartStyled = styled.div`
     position: absolute;
     width: min(100%, 377px);
     z-index: 5;
+    border-radius: ${theme.radius.light};
     background-color: white;
-    top: 100%;
+    top: 130%;
     right: 0;
     padding: 32px 28px ;
     border: 1px solid black;

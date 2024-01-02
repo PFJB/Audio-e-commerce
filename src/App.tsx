@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { deepCopyArray } from './utils/arrays.tsx'
 import CartContext from './context/CartContext.tsx'
 
-
 function App() {
 
   const [cart, setCart] = useState([])
@@ -25,11 +24,31 @@ function App() {
     setCart(copy)
   }
 
-  const delToCart = () => {
+  const plusMinusCart = (id: number, type: "minus" | "plus") => {
+    const copy = deepCopyArray(cart)
+    const copyProduct = copy.find((product) => product.id === id)
+    type === "plus" ? copyProduct.quantity += 1 : copyProduct.quantity -= 1
+
+    if (copyProduct.quantity <= 0) {
+      const index = copy.findIndex((product) => product.id === id)
+      copy.splice(index, 1)
+    }
+    setCart(copy)
   }
+
   const resetCart = () => { setCart([]) }
 
-  const cartContext = { addToCart, delToCart, cart, setCart, resetCart }
+
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
+  const openNav = () => { setIsNavOpen(isNavOpen ? false : true) }
+  const openCart = () => { setIsCartOpen(isCartOpen ? false : true) }
+
+
+  const cartContext = {
+    addToCart, plusMinusCart, cart, setCart, resetCart, isNavOpen, setIsNavOpen,
+    isCartOpen, setIsCartOpen, openNav, openCart
+  }
   return (
     <CartContext.Provider value={cartContext}>
       <Routes>
