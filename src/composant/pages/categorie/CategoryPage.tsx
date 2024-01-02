@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Header from "../../../home/header/Header";
+import Header from "../../home/header/Header";
 import TitleCategorie from "./TitleCategorie";
-import Footer from "../../../home/footer/Footer";
-import Presentation from "../../../home/presentation/Presentation";
-import NavigationCard from "../../../home/navigationCard/NavigationCard";
+import Footer from "../../home/footer/Footer";
+import Presentation from "../../home/presentation/Presentation";
+import NavigationCard from "../../home/navigationCard/NavigationCard";
 import ContentCategory from "./ContentCategory";
 import { useParams } from "react-router-dom";
 

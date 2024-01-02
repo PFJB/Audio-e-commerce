@@ -17,10 +17,11 @@ type ProductDescriptionProps = {
         label: string,
         version: number
     },
-    onLeft?: boolean
+    onLeft?: boolean,
+    onClick: () => void
 }
 
-export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true }: ProductDescriptionProps) {
+export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, onClick }: ProductDescriptionProps) {
     return (
         <ProductDescriptionStyled className={className} $onLeft={onLeft}>
             <div className="image" >
@@ -34,7 +35,7 @@ export default function ProductDescription({ className, image, title, ad, descri
                 <p className="ad">{ad && "NEW PRODUCT"}</p>
                 <h2 className="title">{title}</h2>
                 <p className="text">{description}</p>
-                <Button label={button.label} version={button.version} />
+                <Button label={button.label} version={button.version} onClick={onClick} />
             </div>
 
 

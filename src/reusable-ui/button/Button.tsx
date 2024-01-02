@@ -6,12 +6,13 @@ import { FaChevronRight } from "react-icons/fa6";
 type ButtonProps = {
     label: string,
     version?: number,
-    className?: string
+    className?: string,
+    onClick?: () => void,
 }
 
-export default function Button({ label, version = 1, className }: ButtonProps) {
+export default function Button({ label, version = 1, className, onClick }: ButtonProps) {
     return (
-        <ButtonStyled className={className} version={version}>
+        <ButtonStyled className={className} version={version} onClick={onClick}>
             {label} {version === 3 && <span><FaChevronRight /></span>}
         </ButtonStyled>
     )

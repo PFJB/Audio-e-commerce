@@ -1,7 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Home from './composant/home/Home'
-import CategoryPage from './composant/pages/categorie/Categorie/CategoryPage'
+import ProductDetail from './composant/pages/productDetail/ProductDetailPage.tsx'
+import CategoryPage from './composant/pages/categorie/CategoryPage'
+import Home from './composant/home/Home.tsx'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Home />} />
 
       <Route path="/category/:category" element={<CategoryPage />} />
+      <Route path="/product-detail/:slug" element={<ProductDetail />} />
 
 
       {/* <Route path="/" element={} />

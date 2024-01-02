@@ -1,10 +1,17 @@
 import styled from "styled-components";
-import { data } from "../../../../assets/data";
-import ProductDescription from "../../../../reusable-ui/product_description/ProductDescription";
+import { data } from "../../../assets/data";
+import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
+import { useNavigate } from "react-router-dom";
 
 export default function ContentCategory({ category }: { category?: string }) {
 
     let order = true;
+    const navigate = useNavigate()
+
+    const navigation = (destination: string) => {
+        window.scrollTo(0, 0);
+        navigate(`/product-detail/${destination}`)
+    }
 
     type objectCategory = {
         id: number,
@@ -16,7 +23,8 @@ export default function ContentCategory({ category }: { category?: string }) {
             mobile: string,
             tablet: string,
             desktop: string
-        }
+        },
+        slug: string
     }
 
     const EMPTY_OBJECT = {
@@ -29,7 +37,8 @@ export default function ContentCategory({ category }: { category?: string }) {
             mobile: "",
             tablet: "",
             desktop: ""
-        }
+        },
+        slug: ""
 
     }
     const list: objectCategory[] = []
@@ -43,6 +52,7 @@ export default function ContentCategory({ category }: { category?: string }) {
             addproduct.ad = product.ad ?? false
             addproduct.description = product.description ?? ""
             addproduct.categoryImage = product.categoryImage
+            addproduct.slug = product.slug ?? ""
             addproduct.ad ? list.unshift(addproduct) : list.push(addproduct)
         }
     })
@@ -66,6 +76,7 @@ export default function ContentCategory({ category }: { category?: string }) {
                         }}
                         title={product.name}
                         button={{ label: "see product", version: 1 }}
+                        onClick={() => navigation(product.slug)}
                         onLeft={order}
                     />
                 }
