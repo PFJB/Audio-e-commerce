@@ -37,6 +37,7 @@ export default function CategoryPage() {
                         }}
                         onLeft={false}
                         price={product.price}
+                        id={product.id}
                     />}
                     <Feature feature={product?.features} listBox={product?.includes} />
                     <GalleryDetail

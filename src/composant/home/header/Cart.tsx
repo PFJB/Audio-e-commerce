@@ -2,18 +2,39 @@ import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
 import CartCard from "./CartCard";
+import { useContext } from "react";
+import CartContext from "../../../context/CartContext";
+import { data } from "../../../assets/data";
+import { formatPrice } from "../../../utils/math";
 
 export default function Cart() {
+
+    const { delToCart, cart, resetCart } = useContext(CartContext)
+
     return (
         <CartStyled>
             <div className="header">
                 <p>{"cart (1)"}</p>
-                <button>remove all</button>
+                <button onClick={resetCart}>remove all</button>
             </div>
             <div className="cart_product">
-                <CartCard />
-                <CartCard />
-                <CartCard />
+                {cart && cart.map((product) => {
+
+                    const find = data.find((d) => d.id === product.id)
+                    if (find) {
+                        return <CartCard
+                            key={product.id}
+                            image={find.cart}
+                            price={formatPrice(find.price)}
+                            title={find.name}
+                            quantity={product.quantity}
+                        />
+                    }
+
+
+                })
+                }
+
             </div>
             <div className="">
                 <div className="price_cart">
@@ -57,6 +78,7 @@ const CartStyled = styled.div`
             background: none;
             padding: 0;
             text-decoration: underline;
+            text-transform: capitalize;
             cursor: pointer;
             color: ${theme.colors.blackL};
             font-size: ${theme.fonts.size.font_s2};

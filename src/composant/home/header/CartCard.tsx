@@ -1,15 +1,22 @@
 import styled from "styled-components";
 import { theme } from "../../../assets/theme/theme";
 
-export default function CartCard() {
+type cart = {
+    title: string,
+    price: string,
+    quantity: number,
+    image: string
+}
+
+export default function CartCard({ title, price, quantity, image }: cart) {
     return (
         <CartCardStyled>
-            <div className="picture">q</div>
+            <div className="picture"><img src={image} alt="" /></div>
             <div className="description">
-                <div className="title">dzsefsefq</div>
-                <p className="price">qzd</p>
+                <div className="title">{title}</div>
+                <p className="price">{price}</p>
             </div>
-            <div className="d"></div>
+            <div className="d">{quantity}</div>
 
 
         </CartCardStyled>
@@ -26,7 +33,12 @@ const CartCardStyled = styled.div`
         aspect-ratio: 1 / 1;
         width: 64px;
         height: 64px;
-        background-color: aliceblue;
+        object-fit: contain;
+        img{
+            border-radius: ${theme.radius.light};
+            height: auto;
+            width: 100%;
+        }
     }
     .d{
         place-self: center;
