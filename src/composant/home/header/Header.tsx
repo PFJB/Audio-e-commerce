@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
 import { Link } from "react-router-dom";
-const CART = "/images/shared/desktop/icon-cart.svg"
+import Cart from "./Cart";
+import { PiShoppingCart } from "react-icons/pi";
+import CartContext from "../../../context/CartContext";
+
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
 
 
 export default function Header() {
 
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-    const open = () => { setIsOpen(isOpen ? false : true) }
+    const { isNavOpen, openNav, isCartOpen, openCart } = useContext(CartContext)
 
     return (
-        <HeaderStyled className="header" $isOpen={isOpen}>
+        <HeaderStyled className="header" $isOpen={isNavOpen}>
             <nav>
-                <img className="burger" onClick={open} src={BURGER} alt="burger button" />
+                <img className="burger" onClick={openNav} src={BURGER} alt="burger button" />
                 <a className="logo" href="/"><img src={LOGO} alt="Logo audiophile" /></a>
                 <ul className="nav-list">
                     <li className="navigation_title"><Link to="/">Home</Link></li>
@@ -24,10 +26,10 @@ export default function Header() {
                     <li className="navigation_title"><Link to="/category/speakers">Speakers</Link></li>
                     <li className="navigation_title"><Link to="/category/earphones">Earphones</Link></li>
                 </ul>
-
-                <img className="cart" src={CART} alt="Cart button" />
+                <PiShoppingCart className='cart' onClick={openCart} />
+                {isCartOpen && <Cart />}
             </nav>
-            {isOpen && <ul className="nav-card"><NavigationCard /></ul>}
+            {isNavOpen && <ul className="nav-card"><NavigationCard /></ul>}
         </HeaderStyled>
     )
 }
@@ -36,6 +38,8 @@ const HeaderStyled = styled.header`
 
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 4;
     height: 90px;
     width: 100%;
     background-color: black;
@@ -55,6 +59,12 @@ nav {
         position: absolute;
         right: 0;
         place-self: center;
+        font-size: 1.25rem;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        
+        &:hover, &:focus{color: ${theme.colors.brown};}
     }
     .logo{
         display: grid;
@@ -105,9 +115,9 @@ nav {
     height: 97px; 
 
        .nav-card{display:none;}
+
     nav {
         .burger{ display: none; }
-
         .nav-list{
             position: relative;
             display: flex;

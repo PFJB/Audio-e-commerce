@@ -10,11 +10,14 @@ import { data } from "../../../assets/data";
 import Feature from "./Feature";
 import GalleryDetail from "./GalleryDetail";
 import { theme } from "../../../assets/theme/theme";
+import { useContext } from "react";
+import CartContext from "../../../context/CartContext";
 
 export default function CategoryPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
     const { slug } = useParams()
+    const { isCartOpen, isNavOpen } = useContext(CartContext)
 
     const product = data.find((product) => product.slug === slug)
     const navigate = useNavigate()
@@ -25,6 +28,8 @@ export default function CategoryPage() {
             <Header />
             <div className="body">
                 <div className="container">
+
+
                     <button className="goBack" onClick={goBack}>Go Back</button>
                     {product && <ProductDetail
                         ad={product.ad}
@@ -37,6 +42,7 @@ export default function CategoryPage() {
                         }}
                         onLeft={false}
                         price={product.price}
+                        id={product.id}
                     />}
                     <Feature feature={product?.features} listBox={product?.includes} />
                     <GalleryDetail
@@ -59,7 +65,9 @@ export default function CategoryPage() {
                     <OtherChoice product={product} />
                     <NavigationCard />
                     <Presentation />
+
                 </div>
+
             </div>
             <Footer />
         </CategoryPageStyled>
@@ -73,8 +81,10 @@ align-items: center;
 width: 100%;
 height: 100%;
 
+
     .body {
-        display: flex;  
+        display: flex; 
+        position :relative ;
         flex-direction: column;
         align-items: center;
         width: 100%;

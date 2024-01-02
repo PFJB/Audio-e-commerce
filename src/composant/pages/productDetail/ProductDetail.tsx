@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CartContext from "../../../context/CartContext";
 
 
 type ProductDescriptionProps = {
     className?: string,
+    id: number
     image: {
         mobile: string,
         tablet: string,
@@ -18,15 +20,19 @@ type ProductDescriptionProps = {
     price: number | bigint
 }
 
-export default function ProductDetail({ className, image, title, ad, description, onLeft = true, price }: ProductDescriptionProps) {
+export default function ProductDetail({ className, id, image, title, ad, description, onLeft = true, price }: ProductDescriptionProps) {
 
     const [count, setCount] = useState(0)
+
+    const { addToCart } = useContext(CartContext)
     const plus = () => { setCount(count + 1) }
     const minus = () => { setCount(count !== 0 ? count - 1 : 0) }
+
     const USDollar = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
     });
+
 
     return (
         <ProductDetailStyled className={className} $onLeft={onLeft}>
@@ -48,7 +54,11 @@ export default function ProductDetail({ className, image, title, ad, description
                         <div>{count}</div>
                         <button onClick={plus}>+</button>
                     </div>
-                    <Button label="add to cart" version={1} />
+                    <Button
+                        label="add to cart"
+                        version={1}
+                        onClick={() => { count !== 0 && addToCart(id, count, price) }}
+                    />
                 </div>
             </div>
 
