@@ -41,6 +41,7 @@ const CheckoutFormStyled = styled.section`
     display: grid;
     gap: 32px;
     padding: 23px;
+    border-radius: ${theme.radius.light};
     background-color: white;    
     h1{
         text-transform: uppercase;
