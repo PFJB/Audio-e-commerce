@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 const CART = "/images/shared/desktop/icon-cart.svg"
 const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
@@ -26,6 +27,7 @@ export default function Header() {
                 </ul>
 
                 <img className="cart" src={CART} alt="Cart button" />
+                <Cart />
             </nav>
             {isOpen && <ul className="nav-card"><NavigationCard /></ul>}
         </HeaderStyled>
@@ -105,9 +107,9 @@ nav {
     height: 97px; 
 
        .nav-card{display:none;}
+
     nav {
         .burger{ display: none; }
-
         .nav-list{
             position: relative;
             display: flex;
