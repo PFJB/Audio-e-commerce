@@ -24,7 +24,7 @@ export default function CheckoutForm() {
                 </div>
 
             </section>
-            <section className="formSection layout2">
+            <section className="formSection layout1">
                 <h2 className="title">payment details</h2>
                 <div className="inputField">
                     <div className="ratio">
@@ -139,16 +139,8 @@ const CheckoutFormStyled = styled.section`
     }
 
 @media (min-width: 426px){
-    .layout1{
-        grid-template-columns: 1fr 1fr;
-    }
-    .span2{
-        grid-area: auto /span 2;
-    }
-    .layout2{
-        grid-template-columns: 1fr 1fr;
-    }
-
+    .layout1{grid-template-columns: 1fr 1fr;}
+    .span2{grid-area: auto /span 2;}
 }
 
 `;
