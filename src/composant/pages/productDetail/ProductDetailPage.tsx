@@ -28,8 +28,6 @@ export default function CategoryPage() {
             <Header />
             <div className="body">
                 <div className="container">
-
-
                     <button className="goBack" onClick={goBack}>Go Back</button>
                     {product && <ProductDetail
                         ad={product.ad}
@@ -80,7 +78,6 @@ flex-direction: column;
 align-items: center;
 width: 100%;
 height: 100%;
-background-color: #f2f2f2;
 
 
     .body {

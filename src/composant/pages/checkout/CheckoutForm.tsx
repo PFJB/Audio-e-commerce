@@ -52,6 +52,7 @@ const CheckoutFormStyled = styled.section`
     display: grid;
     gap: 32px;
     padding: 23px;
+    width: 100%;
     border-radius: ${theme.radius.light};
     background-color: white;
     max-width: 730px;
