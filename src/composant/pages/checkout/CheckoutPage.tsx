@@ -2,32 +2,31 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../../home/header/Header";
 import Footer from "../../home/footer/Footer";
-import { useContext, useState } from "react";
-import CartContext from "../../../context/CartContext";
+import { useState } from "react";
 import { theme } from "../../../assets/theme/theme";
 import CheckoutForm from "./CheckoutForm";
 import Summary from "./Summary";
+import CheckoutModal from "./CheckoutModal";
 
 export default function CheckoutPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
-    const { cart } = useContext(CartContext)
-    const [scrollable, setScrollable] = useState<boolean>(true)
 
+    const [modalShowed, setModalShowed] = useState<boolean>(false)
     const navigate = useNavigate()
     const goBack = () => { navigate(-1) }
 
     return (
-        <CategoryPageStyled $scrollable={scrollable}>
+        <CategoryPageStyled $modalShowed={modalShowed}>
+            {modalShowed && <CheckoutModal />}
             <div className="main">
                 <Header />
-                {scrollable && <CheckoutModal />}
                 <div className="body">
                     <div className="container">
                         <button className="goBack" onClick={goBack}>Go Back</button>
                         <div className="form">
                             <CheckoutForm />
-                            <Summary />
+                            <Summary set={() => setModalShowed(modalShowed ? false : true)} />
                         </div>
                     </div>
                 </div>
@@ -41,13 +40,12 @@ export default function CheckoutPage() {
 
 
 const CategoryPageStyled = styled.div`
-display: flex;
-flex-direction: column;
-width: 100vw;
-height: auto;
-max-height: 100vh;
-background-color: #f2f2f2;
-overflow: ${({ $scrollable }) => $scrollable ? "scroll" : "hidden"};
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f2f2f2;
+    overflow: ${({ $modalShowed }) => $modalShowed ? "hidden" : "scroll"};
 
     .main{
         width: 100%;

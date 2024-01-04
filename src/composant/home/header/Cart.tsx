@@ -6,24 +6,17 @@ import { useContext } from "react";
 import CartContext from "../../../context/CartContext";
 import { data } from "../../../assets/data";
 import { formatPrice } from "../../../utils/math";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
 
-    const { cart, resetCart } = useContext(CartContext)
-    console.log()
-    const sum = (type: "quantity" | "price") => {
-        let sum = 0
-        cart.map((product) => {
-            if (type === "quantity") sum += product.quantity
-            if (type === "price") sum += product.price * product.quantity
-        })
-        return type === "quantity" ? sum : formatPrice(sum)
-    }
+    const { cart, resetCart, setIsCartOpen, sum } = useContext(CartContext)
+    const navigate = useNavigate()
 
     return (
         <CartStyled>
             <div className="header">
-                <p>cart ({sum("quantity")})</p>
+                <p className="quantity_header">cart ({sum("quantity")})</p>
                 <button onClick={resetCart}>remove all</button>
             </div>
             <div className="cart_product">
@@ -34,19 +27,27 @@ export default function Cart() {
                             key={product.id}
                             id={product.id}
                             image={find.cart}
-                            price={formatPrice(find.price)}
+                            price={find.price ?? 0}
                             title={find.name}
                             quantity={product.quantity}
+                            button
                         />
                     }
                 })}
             </div>
-            <div className="">
+            <div>
                 <div className="price_cart">
                     <p className="total">total</p>
-                    <p className="number">{sum("price")}</p>
+                    <p className="number">{formatPrice(sum("price"))}</p>
                 </div>
-                <Button className="button" label="checkout" version={1} />
+                <Button
+                    className="button"
+                    label="checkout"
+                    version={1}
+                    onClick={() => {
+                        setIsCartOpen(false)
+                        navigate("/checkout")
+                    }} />
             </div>
 
         </CartStyled>
@@ -71,7 +72,7 @@ const CartStyled = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        p{
+        .quantity_header{
             text-transform: uppercase;
             color: ${theme.colors.black};
             font-size: ${theme.fonts.size.font_s3};

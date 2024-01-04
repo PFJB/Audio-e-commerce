@@ -10,14 +10,11 @@ import { data } from "../../../assets/data";
 import Feature from "./Feature";
 import GalleryDetail from "./GalleryDetail";
 import { theme } from "../../../assets/theme/theme";
-import { useContext } from "react";
-import CartContext from "../../../context/CartContext";
 
 export default function CategoryPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
     const { slug } = useParams()
-    const { isCartOpen, isNavOpen } = useContext(CartContext)
 
     const product = data.find((product) => product.slug === slug)
     const navigate = useNavigate()
@@ -39,33 +36,31 @@ export default function CategoryPage() {
                             desktop: product.image?.desktop ?? ""
                         }}
                         onLeft={false}
-                        price={product.price}
+                        price={product.price ?? 0}
                         id={product.id}
                     />}
                     <Feature feature={product?.features} listBox={product?.includes} />
                     <GalleryDetail
                         first={{
-                            desktop: product?.gallery?.first.desktop,
-                            tablet: product?.gallery?.first.tablet,
-                            mobile: product?.gallery?.first.mobile
+                            desktop: product?.gallery?.first.desktop ?? "",
+                            tablet: product?.gallery?.first.tablet ?? "",
+                            mobile: product?.gallery?.first.mobile ?? ""
                         }}
                         second={{
-                            desktop: product?.gallery?.second.desktop,
-                            tablet: product?.gallery?.second.tablet,
-                            mobile: product?.gallery?.second.mobile
+                            desktop: product?.gallery?.second.desktop ?? "",
+                            tablet: product?.gallery?.second.tablet ?? "",
+                            mobile: product?.gallery?.second.mobile ?? ""
                         }}
                         third={{
-                            desktop: product?.gallery?.third.desktop,
-                            tablet: product?.gallery?.third.tablet,
-                            mobile: product?.gallery?.third.mobile
+                            desktop: product?.gallery?.third.desktop ?? "",
+                            tablet: product?.gallery?.third.tablet ?? "",
+                            mobile: product?.gallery?.third.mobile ?? ""
                         }}
                     />
                     <OtherChoice product={product} />
                     <NavigationCard />
                     <Presentation />
-
                 </div>
-
             </div>
             <Footer />
         </CategoryPageStyled>
@@ -78,7 +73,6 @@ flex-direction: column;
 align-items: center;
 width: 100%;
 height: 100%;
-
 
     .body {
         display: flex; 

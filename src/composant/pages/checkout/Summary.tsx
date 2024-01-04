@@ -7,18 +7,10 @@ import CartContext from "../../../context/CartContext";
 import { data } from "../../../assets/data";
 import { formatPrice } from "../../../utils/math";
 
-export default function Summary() {
+export default function Summary({ set }) {
 
-    const { cart } = useContext(CartContext)
+    const { cart, sum } = useContext(CartContext)
 
-    const sum = (type: "quantity" | "price") => {
-        let sum = 0
-        cart.map((product) => {
-            if (type === "quantity") sum += product.quantity
-            if (type === "price") sum += product.price * product.quantity
-        })
-        return type === "quantity" ? sum : sum
-    }
     const sumToPay = sum("price")
     const vat = sumToPay * (20 / 100)
     const total = sumToPay + vat + 50
@@ -34,7 +26,7 @@ export default function Summary() {
                             key={product.id}
                             id={product.id}
                             image={find.cart}
-                            price={formatPrice(find.price)}
+                            price={find.price}
                             title={find.name}
                             quantity={product.quantity}
                         />
@@ -57,11 +49,11 @@ export default function Summary() {
                 </div>
                 <div className="flex-space">
                     <p>GRAND TOTAL</p>
-                    <p>{formatPrice(total)}</p>
+                    <p className="brown">{formatPrice(total)}</p>
                 </div>
             </div>
 
-            <Button className="button" label="continue & pay" version={1} />
+            <Button className="button" label="continue & pay" version={1} onClick={set} />
 
         </SummaryStyled>
     )
@@ -110,9 +102,10 @@ const SummaryStyled = styled.section`
                 color: ${theme.colors.black};
                 font-weight: ${theme.fonts.weigth.bold};
             }
+            .brown{color: ${theme.colors.brown}; }
         }
     }
-
+  
     @media (min-width: 769px){
     max-width: 350px;
     min-width: 250px;
