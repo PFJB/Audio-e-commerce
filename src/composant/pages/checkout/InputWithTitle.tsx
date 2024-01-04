@@ -37,5 +37,8 @@ const InputWithTitleStyled = styled.div`
         color: #000000;
         border-radius: ${theme.radius.light};
     }
+     :focus{
+        outline: 2px solid ${theme.colors.lightBrown};
+    }
 
 `;

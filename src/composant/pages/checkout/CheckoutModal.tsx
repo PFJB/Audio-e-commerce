@@ -4,26 +4,28 @@ import { useNavigate } from "react-router-dom";
 import { theme } from "../../../assets/theme/theme";
 import { FaCheck } from "react-icons/fa6";
 import CartCard from "../../home/header/CartCard";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../../../context/CartContext";
 import { data } from "../../../assets/data";
-
+import { formatPrice } from "../../../utils/math";
 
 export default function CheckoutModal() {
 
     const navigate = useNavigate()
-    const { cart } = useContext(CartContext)
+    const [display, setDisplay] = useState(false)
+    const { cart, sum } = useContext(CartContext)
     const copyFirst = cart.slice(0, 1).shift()
-    const product = copyFirst ? data.find((t) => t.id === copyFirst.id) : null
+    const product = copyFirst ? data.find((productData) => productData.id === copyFirst.id) : null
 
     return (
-        <CheckoutModalStyled>
+        <CheckoutModalStyled $display={display}>
             <div className="container">
                 <div className="orange"><FaCheck /></div>
                 <h2>THANK YOU FOR YOUR ORDER</h2>
                 <p >You will receive an email confirmation shortly.</p>
                 <div className="recap">
                     <div className="firstField">
+
                         {product && copyFirst && <CartCard
                             id={product.id}
                             title={product.name}
@@ -31,12 +33,31 @@ export default function CheckoutModal() {
                             price={copyFirst.price}
                             quantity={copyFirst.quantity}
                         />}
+                        <div className="product">
+                            <div>
+                                {cart && cart.map((product) => {
+                                    const find = data.find((d) => d.id === product.id)
+                                    if (find && find.id !== copyFirst?.id) {
+                                        return <CartCard
+                                            key={product.id}
+                                            id={product.id}
+                                            image={find.cart}
+                                            price={find.price ?? 0}
+                                            title={find.name}
+                                            quantity={product.quantity}
+                                        />
+                                    }
+                                })}
+                            </div>
+                        </div>
                         <div className="line"></div>
-                        <p>and 2 other item(s)</p>
+                        <button onClick={() => setDisplay(display ? false : true)}>
+                            {!display ? `and ${cart.length - 1} other item(s)` : "View less"}
+                        </button>
                     </div>
                     <div className="second_field">
                         <p>GRAND TOTAL</p>
-                        <p>$ 5,446</p>
+                        <p>{formatPrice(sum("price") + 50 + (sum("price") * 20 / 100))}</p>
                     </div>
                 </div>
                 <Button
@@ -65,7 +86,17 @@ const CheckoutModalStyled = styled.div`
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4); 
-  
+
+    .product{
+        display: grid;
+        grid-template-rows: ${({ $display }) => $display ? "1fr" : "0fr"};
+        transition:   0.8s  ;
+        & > div{
+            display:grid;
+            grid-row:1 / span 2;
+            overflow: hidden;
+        }
+    }
     .container{
         margin: auto;
         padding: 32px;
@@ -88,18 +119,29 @@ const CheckoutModalStyled = styled.div`
             margin-bottom: 1.5rem;
         }
         .firstField{
-            background-color: ${theme.colors.grey};
+            display: grid;
             padding: 24px 25px;
             border-radius: 5px 5px 0 0;
-            & > p { text-align: center;}
+            background-color: ${theme.colors.grey};
+
+            & > button {
+                background-color: transparent;
+                border: none;
+                color: ${theme.colors.blackL};
+                font-size: ${theme.fonts.size.font_s0};
+                font-weight: ${theme.fonts.weigth.bold};
+                cursor: pointer;
+                &:hover{text-decoration: underline;}
+            }
             & .line{
                 margin: 12px 0;
                 border: 1px solid #00000010;
                 border-color: #00000010;
-            }     
+            }
         }
 
         .second_field{
+            
             padding: 15px 24px 19px 24px;
             background-color: ${theme.colors.black};
             border-radius: 0 0 5px 5px;
@@ -126,5 +168,20 @@ const CheckoutModalStyled = styled.div`
     .button{
         margin-top: 23px;
         width:100%;
+    }
+
+    @media (min-width: 769px){
+        .recap{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .second_field{
+                display: grid;
+                padding-left: 32px;
+                padding-bottom: 41px;
+                transition: 1s;
+                place-content: end start;
+            }
+        }
     }
 `;

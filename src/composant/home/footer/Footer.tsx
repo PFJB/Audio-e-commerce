@@ -3,6 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { theme } from "../../../assets/theme/theme";
+import { Link } from "react-router-dom";
 const LOGO = "/images/shared/desktop/logo.svg"
 
 export default function Footer() {
@@ -11,10 +12,10 @@ export default function Footer() {
             <div className="container">
                 <a className="logo" href=""><img src={LOGO} alt="" /></a>
                 <ul className="nav-list">
-                    <li className="navigation_title"><a href="/">Home</a></li>
-                    <li className="navigation_title"><a href="/category/headphones">Headphones</a></li>
-                    <li className="navigation_title"><a href="/category/speakers">Speakers</a></li>
-                    <li className="navigation_title"><a href="/category/earphones">Earphones</a></li>
+                    <li className="navigation_title"><Link to="/">Home</Link></li>
+                    <li className="navigation_title"><Link to="/category/headphones">Headphones</Link></li>
+                    <li className="navigation_title"><Link to="/category/speakers">Speakers</Link></li>
+                    <li className="navigation_title"><Link to="/category/earphones">Earphones</Link></li>
                 </ul>
                 <p className="description">Audiophile is an all in one stop to fulfill your audio needs.
                     We're a small team of music lovers and sound specialists who are

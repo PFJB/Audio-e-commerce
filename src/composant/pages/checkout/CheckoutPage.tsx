@@ -27,6 +27,7 @@ export default function CheckoutPage() {
                         <div className="form">
                             <CheckoutForm />
                             <Summary set={() => setModalShowed(modalShowed ? false : true)} />
+
                         </div>
                     </div>
                 </div>

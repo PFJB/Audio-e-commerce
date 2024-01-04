@@ -81,7 +81,6 @@ const CheckoutFormStyled = styled.section`
             gap: 24px;
             color: black;
 
-
           .ratio{
             position: relative;
             display: flex;
@@ -96,13 +95,11 @@ const CheckoutFormStyled = styled.section`
             height: 56px;
             width: 100%;
 
-  
             input[type=radio]{
          
                 display: grid;
                 place-content: center;
                 padding: 0;
-                appearance: none;
                 background-color: #fff;
                 margin: 0;
                 appearance: none;
