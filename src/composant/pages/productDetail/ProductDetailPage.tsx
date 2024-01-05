@@ -10,6 +10,7 @@ import { data } from "../../../assets/data";
 import Feature from "./Feature";
 import GalleryDetail from "./GalleryDetail";
 import { theme } from "../../../assets/theme/theme";
+import ErrorPage from "../error/ErrorPage";
 
 export default function CategoryPage() {
 
@@ -19,6 +20,8 @@ export default function CategoryPage() {
     const product = data.find((product) => product.slug === slug)
     const navigate = useNavigate()
     const goBack = () => { navigate(-1) }
+
+    if (!product) { return <ErrorPage /> }
 
     return (
         <CategoryPageStyled>

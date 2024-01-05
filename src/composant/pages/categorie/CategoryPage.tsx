@@ -6,11 +6,16 @@ import Presentation from "../../home/presentation/Presentation";
 import NavigationCard from "../../home/navigationCard/NavigationCard";
 import ContentCategory from "./ContentCategory";
 import { useParams } from "react-router-dom";
+import ErrorPage from "../error/ErrorPage";
 
 export default function CategoryPage() {
 
     window.onunload = function () { window.scrollTo(0, 0); }
     const { category } = useParams()
+    const pages = ["headphones", "earphones", "speakers"]
+    if (!pages.find((d) => category === d)) {
+        return (<ErrorPage />)
+    }
 
     return (
         <CategoryPageStyled>
@@ -50,6 +55,4 @@ height: 100%;
         height: 100%;
         gap: 7.5rem;
     }
-
-
 `;

@@ -7,6 +7,7 @@ import { useState } from 'react'
 import CartContext from './context/CartContext.tsx'
 import CheckoutPage from './composant/pages/checkout/CheckoutPage.tsx'
 import { useCart } from './hook/useCart.tsx'
+import ErrorPage from './composant/pages/error/ErrorPage.tsx'
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
         <Route path="/product-detail/:slug" element={<ProductDetail />} />
         <Route path="/checkout" element={<CheckoutPage />} />
 
-        {/* <Route path="*" element={<ErrorPage />} /> */}
+        <Route path="*" element={<ErrorPage />} />
       </ Routes>
     </CartContext.Provider>
   )
