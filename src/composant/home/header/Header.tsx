@@ -3,11 +3,12 @@ import styled from "styled-components";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
 import { Link } from "react-router-dom";
-import Cart from "./Cart";
+import Cart from "./cart/Cart";
 import { PiShoppingCart } from "react-icons/pi";
 import CartContext from "../../../context/CartContext";
+import Logo from "../../../reusable-ui/Logo";
+import NavigationList from "../footer/NavigationList";
 
-const LOGO = "/images/shared/desktop/logo.svg"
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
 
 
@@ -17,19 +18,17 @@ export default function Header() {
 
     return (
         <HeaderStyled className="header" $isOpen={isNavOpen}>
+
             <nav>
                 <img className="burger" onClick={openNav} src={BURGER} alt="burger button" />
-                <a className="logo" href="/"><img src={LOGO} alt="Logo audiophile" /></a>
-                <ul className="nav-list">
-                    <li className="navigation_title"><Link to="/">Home</Link></li>
-                    <li className="navigation_title"><Link to="/category/headphones">Headphones</Link></li>
-                    <li className="navigation_title"><Link to="/category/speakers">Speakers</Link></li>
-                    <li className="navigation_title"><Link to="/category/earphones">Earphones</Link></li>
-                </ul>
+                <Logo className="logo" />
+                <NavigationList className="nav_list" />
                 <PiShoppingCart className='cart' onClick={openCart} />
                 {isCartOpen && <Cart />}
             </nav>
-            {isNavOpen && <ul className="nav-card"><NavigationCard /></ul>}
+
+            {isNavOpen &&
+                <ul className="nav_card"><NavigationCard /></ul>}
         </HeaderStyled>
     )
 }
@@ -67,29 +66,14 @@ nav {
         &:hover, &:focus{color: ${theme.colors.brown};}
     }
     .logo{
-        display: grid;
-        place-items: center;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        cursor: pointer;
     }
-    .nav-list{
-        display: none;
-        text-transform: uppercase;
-
-        .navigation_title{
-            font-size: ${theme.fonts.size.font_s0};
-            font-weight: ${theme.fonts.weigth.bold};
-            letter-spacing: ${theme.fonts.letterSpacing.char_s5};
-            a{
-                color: white;
-            }
-        }
-        }
+    .nav_list{ display: none; }
 
 }
-    .nav-card{
+    .nav_card{
         display: ${({ $isOpen }) => $isOpen ? "block" : "none"};
         position: absolute;
         padding: 32px 24px 35px 24px;
@@ -114,25 +98,13 @@ nav {
 @media screen and (min-width: 769px) {
     height: 97px; 
 
-       .nav-card{display:none;}
-
+    .nav_card{ display:none; }
     nav {
+        display: flex;
         .burger{ display: none; }
-        .nav-list{
-            position: relative;
+        .nav_list{
             display: flex;
-            width: auto;
-            height: auto;
-            top: auto;
-            left: auto;
-            gap: 34px;
-            color: white;
-            li a:hover,
-            li a:active {
-                cursor: pointer;
-                color: ${theme.colors.brown};
-
-            }
+            justify-self: center;
         }
     }
 }

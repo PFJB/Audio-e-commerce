@@ -1,34 +1,35 @@
 import styled from "styled-components";
-import { theme } from "../../../assets/theme/theme";
+import { theme } from "../../../../../assets/theme/theme";
 import { useContext } from "react";
-import CartContext from "../../../context/CartContext";
+import CartContext from "../../../../../context/CartContext";
+import { formatPrice } from "../../../../../utils/math";
 
-type cart = {
+type cart_card = {
     id: number,
     title: string,
-    price: string,
+    price: number,
     quantity: number,
-    image: string
+    image: string | undefined
+    button?: true | false
 }
 
-export default function CartCard({ title, price, quantity, image, id }: cart) {
+export default function CartCard({ title, price, quantity, image, id, button }: cart_card) {
 
     const { plusMinusCart } = useContext(CartContext)
 
     return (
         <CartCardStyled>
-            <div className="picture"><img src={image} alt="" /></div>
+            <div className="picture"><img src={image} alt={title} /></div>
             <div className="description">
-                <div className="title">{title}</div>
-                <p className="price">{price}</p>
+                <p className="title">{title}</p>
+                <p className="price">{formatPrice(price)}</p>
             </div>
-            <div className="plus_minus">
+            {button ? <div className="plus_minus">
                 <button onClick={() => plusMinusCart(id, "minus")} >-</button>
                 <div>{quantity}</div>
                 <button onClick={() => plusMinusCart(id, "plus")} > +</button>
-            </div>
-
-
+            </div> :
+                <p>x{quantity}</p>}
         </CartCardStyled >
     )
 }
@@ -39,10 +40,14 @@ const CartCardStyled = styled.div`
     column-gap: 16px;
     row-gap: 10px;
     min-height: 64px;
+
     .picture{
+        display: grid;
+        place-content: center;
         aspect-ratio: 1 / 1;
-        width: 64px;
-        height: 64px;
+        width: 100%;
+        height: 100%;
+        max-width: 64px;
         object-fit: contain;
         img{
             border-radius: ${theme.radius.light};
@@ -62,7 +67,8 @@ const CartCardStyled = styled.div`
         flex-direction: column;
         justify-content: center;
         overflow: hidden;
-        .title{
+       
+        .title{ 
             color: ${theme.colors.black};
             font-size: ${theme.fonts.size.font_s2};
             font-weight: ${theme.fonts.weigth.bold};
@@ -74,7 +80,7 @@ const CartCardStyled = styled.div`
         }
         
     }
-.plus_minus{
+    .plus_minus{
         display: grid;
         grid-template-columns: 1fr 0.5fr 1fr;
         place-self: center;
@@ -104,7 +110,11 @@ const CartCardStyled = styled.div`
         }
     }
     @media screen and (max-width: 350px) {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 35% 1fr;
         grid-row: auto auto;
+        .plus_minus{
+            place-self: start;
+            grid-area: auto / span 2;
+        }
     }
 `;

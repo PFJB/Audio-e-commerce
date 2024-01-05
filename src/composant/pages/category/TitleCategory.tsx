@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../../assets/theme/theme";
 
-export default function TitleCategorie({ title }: { title?: string }) {
+export default function TitleCategory({ title }: { title?: string }) {
     return (
-        <TitleCategorieStyled>
+        <TitleCategoryStyled>
             {title}
-        </TitleCategorieStyled>
+        </TitleCategoryStyled>
     )
 }
 
-const TitleCategorieStyled = styled.section`
+const TitleCategoryStyled = styled.section`
     display: grid;
     place-content: center;
     height: clamp(100px, 2rem + 15vw, 246px);

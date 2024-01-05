@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Button from "../button/Button";
 import { theme } from "../../assets/theme/theme";
+import LinkButton from "../button/LinkButton";
 
 
 type ProductDescriptionProps = {
@@ -18,10 +18,10 @@ type ProductDescriptionProps = {
         version: number
     },
     onLeft?: boolean,
-    onClick: () => void
+    destination: string
 }
 
-export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, onClick }: ProductDescriptionProps) {
+export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, destination }: ProductDescriptionProps) {
     return (
         <ProductDescriptionStyled className={className} $onLeft={onLeft}>
             <div className="image" >
@@ -35,7 +35,7 @@ export default function ProductDescription({ className, image, title, ad, descri
                 <p className="ad">{ad && "NEW PRODUCT"}</p>
                 <h2 className="title">{title}</h2>
                 <p className="text">{description}</p>
-                <Button label={button.label} version={button.version} onClick={onClick} />
+                <LinkButton label={button.label} version={button.version} destination={destination} />
             </div>
 
 

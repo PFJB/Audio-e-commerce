@@ -17,7 +17,7 @@ type ProductDescriptionProps = {
     ad?: boolean,
     description: string | undefined,
     onLeft?: boolean,
-    price: number | bigint
+    price: number
 }
 
 export default function ProductDetail({ className, id, image, title, ad, description, onLeft = true, price }: ProductDescriptionProps) {
