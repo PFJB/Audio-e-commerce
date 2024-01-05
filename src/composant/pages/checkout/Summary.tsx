@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
-import CartCard from "../../home/header/CartCard";
+import CartCard from "../../home/header/cart/composant/CartCard";
 import { theme } from "../../../assets/theme/theme";
 import { useContext } from "react";
 import CartContext from "../../../context/CartContext";
@@ -33,7 +33,6 @@ export default function Summary({ set }) {
                     }
                 })}
             </div>
-
             <div className="priceField">
                 <div className="flex-space">
                     <p>TOTAL</p>
@@ -52,13 +51,10 @@ export default function Summary({ set }) {
                     <p className="brown">{formatPrice(total)}</p>
                 </div>
             </div>
-
             <Button className="button" label="continue & pay" version={1} onClick={set} />
-
         </SummaryStyled>
     )
 }
-
 
 const SummaryStyled = styled.section`
     display: grid;
@@ -107,7 +103,6 @@ const SummaryStyled = styled.section`
     }
   
     @media (min-width: 769px){
-    max-width: 350px;
-    min-width: 250px;
-}
+        min-width: 290px;
+    }
 `;

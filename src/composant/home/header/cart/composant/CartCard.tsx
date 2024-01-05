@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { theme } from "../../../assets/theme/theme";
+import { theme } from "../../../../../assets/theme/theme";
 import { useContext } from "react";
-import CartContext from "../../../context/CartContext";
-import { formatPrice } from "../../../utils/math";
+import CartContext from "../../../../../context/CartContext";
+import { formatPrice } from "../../../../../utils/math";
 
 type cart_card = {
     id: number,

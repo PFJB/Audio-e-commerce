@@ -1,13 +1,13 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import ProductDetail from './composant/pages/productDetail/ProductDetailPage.tsx'
-import CategoryPage from './composant/pages/categorie/CategoryPage'
 import Home from './composant/home/Home.tsx'
 import { useState } from 'react'
 import CartContext from './context/CartContext.tsx'
 import CheckoutPage from './composant/pages/checkout/CheckoutPage.tsx'
 import { useCart } from './hook/useCart.tsx'
 import ErrorPage from './composant/pages/error/ErrorPage.tsx'
+import CategoryPage from './composant/pages/category/CategoryPage.tsx'
 
 function App() {
 

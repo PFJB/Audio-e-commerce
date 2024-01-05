@@ -3,7 +3,7 @@ import Button from "../../../reusable-ui/button/Button";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../../../assets/theme/theme";
 import { FaCheck } from "react-icons/fa6";
-import CartCard from "../../home/header/CartCard";
+import CartCard from "../../home/header/cart/composant/CartCard";
 import { useContext, useState } from "react";
 import CartContext from "../../../context/CartContext";
 import { data } from "../../../assets/data";
@@ -75,8 +75,6 @@ const CheckoutModalStyled = styled.div`
     display: flex;
     position: fixed; 
     z-index: 3;
-    padding-top: 150px;
-    padding-bottom: 100px;
     padding-left: 23px;
     padding-right: 23px;
     left: 0;
@@ -98,6 +96,8 @@ const CheckoutModalStyled = styled.div`
         }
     }
     .container{
+        position: relative;
+        height: fit-content;
         margin: auto;
         padding: 32px;
         background-color: white;

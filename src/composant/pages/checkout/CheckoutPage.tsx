@@ -89,6 +89,6 @@ const CategoryPageStyled = styled.div`
     }
 
     @media (min-width: 769px){
-        .form{ grid-template-columns: auto auto; }
+        .form{ grid-template-columns: 2fr 1fr; }
     }
 `;
