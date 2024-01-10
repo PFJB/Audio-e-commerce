@@ -93,13 +93,13 @@ height: 100%;
         max-width: 69.375rem;
         height: 100%;
         gap: 7.5rem;
-        padding-top: 82px;
+        padding-top: 5.125rem;
     }
 
 .goBack{
     position: absolute;
     left: 0;
-    top: 33px;
+    top: 2.0625rem;
     border: none;
     background: none;
     padding: 0;

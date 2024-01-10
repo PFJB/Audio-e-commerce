@@ -19,14 +19,14 @@ const OtherChoiceStyled = styled.section`
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto auto;
     width: 100;
-    row-gap: 56px;
-    column-gap: 16px;
+    row-gap: 3.5rem;
+    column-gap: 1rem;
     text-align: center;
 
     .header{
         font-weight: ${theme.fonts.weigth.bold};
         color: ${theme.colors.black};
-        font-size: clamp(${theme.fonts.size.font_s4}, 1rem +  2vw, 32px);
+        font-size: clamp(${theme.fonts.size.font_s4}, 1rem +  2vw, 2rem);
         letter-spacing: clamp(0.86px, 0.05rem + 0.10vw, 1.14px);
     }
    

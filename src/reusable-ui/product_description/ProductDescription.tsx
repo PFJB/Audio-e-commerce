@@ -51,13 +51,11 @@ grid-column: 1fr;
 position: relative;
 width: 100%;
 row-gap: 32px;
-place-items: center;
 
 .image{
     display: grid;
     place-content: center;
-    width: 100%;
-    background-color: ${theme.colors.grey};
+  
 
     object-fit: contain;
 img{

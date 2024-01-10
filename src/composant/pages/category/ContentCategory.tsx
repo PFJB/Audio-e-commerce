@@ -33,5 +33,5 @@ export default function ContentCategory({ category }: { category?: string }) {
 
 const HeadphoneCategoryStyled = styled.section`
     display: grid;
-    gap: 160px;
+    gap: 10rem;
 `;
