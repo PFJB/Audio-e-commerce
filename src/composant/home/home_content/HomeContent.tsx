@@ -3,6 +3,7 @@ import ProductDescription from "../../../reusable-ui/product_description/Product
 import { HOME_EARPHONE_DESKTOP, HOME_EARPHONE_MOBILE, HOME_EARPHONE_TABLET, HOME_PRESENTATION_SPEAKER_DESKTOP, HOME_PRESENTATION_SPEAKER_MOBILE, HOME_PRESENTATION_SPEAKER_TABLET, HOME_SPEAKER_DESKTOP, HOME_SPEAKER_MOBILE, HOME_SPEAKER_TABLET } from "../../../enums/product";
 import { theme } from "../../../assets/theme/theme";
 import LinkButton from "../../../reusable-ui/button/LinkButton";
+import HeaderContent from "./HeaderContent";
 
 
 export default function HomeContent() {
@@ -10,17 +11,8 @@ export default function HomeContent() {
 	return (
 		<HomeContentStyled>
 
-			<ProductDescription
-				className="descriptionModified"
-				title="ZX9 SPEAKER"
-				description="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
-				button={{ label: "see product", version: 2 }}
-				image={{
-					mobile: HOME_PRESENTATION_SPEAKER_MOBILE,
-					tablet: HOME_PRESENTATION_SPEAKER_TABLET,
-					desktop: HOME_PRESENTATION_SPEAKER_DESKTOP
-				}}
-				onLeft={false}
+			<HeaderContent
+
 			/>
 
 
@@ -58,28 +50,6 @@ const HomeContentStyled = styled.section`
 	display: grid;
 	gap: 32px;
   	width: 100%;
-
-
-.descriptionModified{
-	background-color: orange;
-	.image{
-		position: relative;
-		
-	
-		height: 493px;
-		width: 100%;
-		img{
-			bottom: 0;
-			left: 0;
-			height: 50%;
-			width: auto;
-		}
-	}
-}
-
-
-
-
 
 	.pic1{
 		display: grid;
@@ -169,16 +139,10 @@ const HomeContentStyled = styled.section`
 @media screen and (min-width: 426px) {
     .pic4{
 		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
 		gap: 11px;
 
 	}
 }
 
-@media screen and (min-width: 376px) {
-
-}
-
-@media screen and (min-width: 730px) {
-
-}
 `;

@@ -35,8 +35,8 @@ const FeatureStyled = styled.section`
     grid-template-columns: auto;
     width: 100%;
     white-space: pre-line;
-    row-gap: 88px;
-    column-gap: 125px;
+    row-gap: 5.5rem;
+    column-gap: 7.8125rem;
 
     .box{
         display: grid;
@@ -45,7 +45,7 @@ const FeatureStyled = styled.section`
 
     div{
         display: grid;
-        gap: 32px;
+        gap: 2rem;
         place-content: start;
 
         h2{
@@ -71,10 +71,10 @@ const FeatureStyled = styled.section`
             }
         }
 }
-    @media (min-width: 426px){
+    @media (min-width: 26.625rem){
         .box{ grid-template-columns: 1fr 1fr; }
     }
-    @media (min-width: 769px){
+    @media (min-width: 48.0625rem){
         grid-template-rows: auto;
         grid-template-columns: 2fr 1fr;
         .box{ grid-template-columns: 1fr; }

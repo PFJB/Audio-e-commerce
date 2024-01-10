@@ -38,7 +38,7 @@ export function useCart() {
             if (type === "quantity") sum += product.quantity
             if (type === "price") sum += product.price * product.quantity
         })
-        return type === "quantity" ? sum : sum
+        return sum
     }
 
     const resetCart = () => { setCart([]) }

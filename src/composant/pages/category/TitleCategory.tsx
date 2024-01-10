@@ -12,9 +12,9 @@ export default function TitleCategory({ title }: { title?: string }) {
 const TitleCategoryStyled = styled.section`
     display: grid;
     place-content: center;
-    height: clamp(100px, 2rem + 15vw, 246px);
+    height: clamp(6.25rem, 2rem + 15vw, 15.375rem);
     width: 100%;
-    margin-bottom: 64px;
+    margin-bottom: 4rem;
     background-color: black;
     color: ${theme.colors.white};
     text-transform: uppercase;

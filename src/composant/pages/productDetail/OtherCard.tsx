@@ -15,8 +15,8 @@ export default function OtherCard({ product }) {
     return (
         <OtherCardStyled>
             <picture>
-                <source media="(min-width: 769px)" srcSet={product.image.desktop} />
-                <source media="(min-width: 600px)" srcSet={product.image.tablet} />
+                <source media="(min-width: 48.0625rem)" srcSet={product.image.desktop} />
+                <source media="(min-width: 37.5rem)" srcSet={product.image.tablet} />
                 <img src={product.image.tablet} alt={product.name} /></picture>
             <div className="description">
                 <p>{product.name}</p>
@@ -30,7 +30,7 @@ const OtherCardStyled = styled.div`
 
     display: grid;
     width: 100%;
-    gap: clamp(25px, 5vw ,40px);
+    gap: clamp(1.5625rem, 5vw ,2.5rem);
 
     
     .description {
@@ -38,7 +38,7 @@ const OtherCardStyled = styled.div`
         flex-direction: column;
         align-items: center;
         width: 100%;
-        gap: 32px;
+        gap: 2rem;
       
         letter-spacing: ${theme.fonts.letterSpacing.char_s4};
         font-size: ${theme.fonts.size.font_s4};

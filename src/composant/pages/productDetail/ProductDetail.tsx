@@ -3,6 +3,7 @@ import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
 import { useContext, useState } from "react";
 import CartContext from "../../../context/CartContext";
+import ImgLoading from "../../../reusable-ui/img/ImgLoading";
 
 
 type ProductDescriptionProps = {
@@ -40,7 +41,7 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
                 <picture>
                     <source media="(min-width: 1024px)" srcSet={image.desktop && image.desktop} />
                     <source media="(min-width: 769px)" srcSet={image.tablet && image.tablet} />
-                    <img src={image.mobile && image.mobile} alt={title} />
+                    <ImgLoading src={image.mobile && image.mobile} alt={title} />
                 </picture>
             </div>
             <div className="description">
@@ -81,7 +82,6 @@ place-items: center;
     display: grid;
     place-content: center;
     width: 100%;
-    background-color: ${theme.colors.grey};
 
     object-fit: contain;
 img{
@@ -100,21 +100,21 @@ img{
         font-weight: ${theme.fonts.weigth.regular};
         font-size: ${theme.fonts.size.font_s1};
         letter-spacing: ${theme.fonts.letterSpacing.char_s6};
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
     }
     .title{
         color: ${theme.colors.black};
         font-weight: ${theme.fonts.weigth.bold};
         font-size: ${theme.fonts.size.font_s5};
         letter-spacing: ${theme.fonts.letterSpacing.char_s0};
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
     }
     .text{
         color: ${theme.colors.blackL};
         font-weight: ${theme.fonts.weigth.medium};
         font-size: ${theme.fonts.size.font_s2};
         line-height: ${theme.fonts.lineSpace.line_s2};
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
     }
 
     .price{
@@ -122,20 +122,20 @@ img{
         font-weight: ${theme.fonts.weigth.bold};
         font-size: ${theme.fonts.size.font_s3};
         letter-spacing: ${theme.fonts.letterSpacing.char_s2};
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
     }
 
     .add_to_cart{
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 1rem;
     }
 
     .plus_minus{
         display: grid;
         grid-template-columns: 1fr 0.5fr 1fr;
-        width: 120px;
-        height: 48px;
+        width: 7.5rem;
+        height: 3rem;
         background-color: ${theme.colors.grey};
         font-size: ${theme.fonts.size.font_s0};
 
@@ -161,21 +161,21 @@ img{
     }
 
 }
-@media screen and (min-width: 769px) {
-    row-gap: 52px;
+@media screen and (min-width: 48.0625rem) {
+    row-gap: 3.25rem;
 	grid-template-columns: 1.5fr 2fr;
     grid-template-rows: auto;
-    gap: clamp(50px, 2rem + 6vw,125px);
+    gap: clamp(3.125rem, 2rem + 6vw,7.8125rem);
 
-    .description .ad{ margin-bottom: 16px; }
-    .description .title{ margin-bottom: 32px; }
+    .description .ad{ margin-bottom: 1rem; }
+    .description .title{ margin-bottom: 2rem; }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 64rem) {
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: clamp(50px, 2rem + 6vw,125px);
+    gap: clamp(3.125rem, 2rem + 6vw,7.8125rem);
     .image{ order: ${({ $onLeft }) => $onLeft ? "1" : "0"}; }
-    .description{ padding-right: 15px; }
+    .description{ padding-right: 0.9375rem; }
 }
 `;
