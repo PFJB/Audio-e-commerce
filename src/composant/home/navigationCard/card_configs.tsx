@@ -15,14 +15,12 @@ export const card_configs = [
         picture: SPEAKER_THUMBMAIL,
         title: "Speakers",
         link: "/category/speakers"
-
     },
     {
         id: "3",
         picture: EARPHONE_THUMBMAIL,
         title: "Earphones",
         link: "/category/earphones"
-
     },
 
 ]

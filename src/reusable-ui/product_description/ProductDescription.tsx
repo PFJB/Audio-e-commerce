@@ -23,7 +23,7 @@ type ProductDescriptionProps = {
 
 export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, destination }: ProductDescriptionProps) {
     return (
-        <ProductDescriptionStyled className={className} $onLeft={onLeft}>
+        <ProductDescriptionStyled className={className} onLeft={onLeft}>
             <div className="image" >
                 <picture>
                     <source media="(min-width: 769px)" srcSet={image.desktop && image.desktop} />
@@ -44,7 +44,7 @@ export default function ProductDescription({ className, image, title, ad, descri
 }
 
 
-const ProductDescriptionStyled = styled.div`
+const ProductDescriptionStyled = styled.div<{ onLeft: boolean }>`
 display: grid;
 grid-template-rows: auto auto;
 grid-column: 1fr;
@@ -114,7 +114,7 @@ img{
     grid-template-rows: auto;
     gap: clamp(50px, 2rem + 6vw,125px);
     .image{
-        order: ${({ $onLeft }) => $onLeft ? "1" : "0"};
+        order: ${({ onLeft }) => onLeft ? "1" : "0"};
     }
     .description{
         padding-right: 15px;

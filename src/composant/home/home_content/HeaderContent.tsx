@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { theme } from "../../../assets/theme/theme";
 import LinkButton from "../../../reusable-ui/button/LinkButton";
 import { HOME_PRESENTATION_SPEAKER_DESKTOP, HOME_PRESENTATION_SPEAKER_MOBILE, HOME_PRESENTATION_SPEAKER_TABLET } from "../../../enums/product";
-import ImgLoading from "../../../reusable-ui/img/ImgLoading";
-
 
 export default function HeaderContent() {
     return (

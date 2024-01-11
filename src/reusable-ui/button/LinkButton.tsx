@@ -20,7 +20,7 @@ export default function LinkButton({ label, version = 1, className, destination 
 }
 
 
-const LinkButtonStyled = styled(Link)`
+const LinkButtonStyled = styled(Link) <{ version: number }>`
     display: grid;
     place-content: center;
     width: 160px;

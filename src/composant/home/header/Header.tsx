@@ -2,7 +2,6 @@ import { useContext } from "react";
 import styled from "styled-components";
 import NavigationCard from "../navigationCard/NavigationCard";
 import { theme } from "../../../assets/theme/theme";
-import { Link } from "react-router-dom";
 import Cart from "./cart/Cart";
 import { PiShoppingCart } from "react-icons/pi";
 import CartContext from "../../../context/CartContext";
@@ -11,13 +10,15 @@ import NavigationList from "../footer/NavigationList";
 
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
 
-
+type Header = {
+    isOpen?: boolean
+}
 export default function Header() {
 
     const { isNavOpen, openNav, isCartOpen, openCart } = useContext(CartContext)
 
     return (
-        <HeaderStyled className="header" $isOpen={isNavOpen}>
+        <HeaderStyled className="header" isOpen={isNavOpen}>
 
             <nav>
                 <img className="burger" onClick={openNav} src={BURGER} alt="burger button" />
@@ -33,7 +34,7 @@ export default function Header() {
     )
 }
 
-const HeaderStyled = styled.header`
+const HeaderStyled = styled.header<Header>`
 
     display: flex;
     justify-content: center;
@@ -74,10 +75,11 @@ nav {
 
 }
     .nav_card{
-        display: ${({ $isOpen }) => $isOpen ? "block" : "none"};
+        display: ${({ isOpen }) => isOpen ? "block" : "none"};
         position: absolute;
         padding: 32px 24px 35px 24px;
         z-index: 200;
+        
         border-bottom: solid 1px black;
         height: auto;
         background-color: white;

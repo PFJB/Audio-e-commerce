@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import ProductDescription from "../../../reusable-ui/product_description/ProductDescription";
-import { HOME_EARPHONE_DESKTOP, HOME_EARPHONE_MOBILE, HOME_EARPHONE_TABLET, HOME_PRESENTATION_SPEAKER_DESKTOP, HOME_PRESENTATION_SPEAKER_MOBILE, HOME_PRESENTATION_SPEAKER_TABLET, HOME_SPEAKER_DESKTOP, HOME_SPEAKER_MOBILE, HOME_SPEAKER_TABLET } from "../../../enums/product";
+import { HOME_EARPHONE_DESKTOP, HOME_EARPHONE_MOBILE, HOME_EARPHONE_TABLET, HOME_SPEAKER_DESKTOP, HOME_SPEAKER_MOBILE, HOME_SPEAKER_TABLET } from "../../../enums/product";
 import { theme } from "../../../assets/theme/theme";
 import LinkButton from "../../../reusable-ui/button/LinkButton";
 import HeaderContent from "./HeaderContent";

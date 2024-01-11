@@ -18,7 +18,7 @@ export default function CheckoutModal() {
     const product = copyFirst ? data.find((productData) => productData.id === copyFirst.id) : null
 
     return (
-        <CheckoutModalStyled $display={display}>
+        <CheckoutModalStyled display={display}>
             <div className="container">
                 <div className="orange"><FaCheck /></div>
                 <h2>THANK YOU FOR YOUR ORDER</h2>
@@ -70,7 +70,7 @@ export default function CheckoutModal() {
 }
 
 
-const CheckoutModalStyled = styled.div`
+const CheckoutModalStyled = styled.div<{ display?: boolean; }>`
 
     display: flex;
     position: fixed; 
@@ -87,7 +87,7 @@ const CheckoutModalStyled = styled.div`
 
     .product{
         display: grid;
-        grid-template-rows: ${({ $display }) => $display ? "1fr" : "0fr"};
+        grid-template-rows: ${({ display }) => display ? "1fr" : "0fr"};
         transition:   0.8s  ;
         & > div{
             display:grid;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
+import { Link } from "react-router-dom";
 
 interface card_props {
     picture: string,
@@ -10,7 +11,7 @@ interface card_props {
 
 export default function Card({ picture, title, link = "/" }: card_props) {
     return (
-        <CardStyled href={link}>
+        <CardStyled to={link}>
             <div className="background"></div>
             <img src={picture} alt={title} />
             <div className="description">
@@ -21,7 +22,7 @@ export default function Card({ picture, title, link = "/" }: card_props) {
     )
 }
 
-const CardStyled = styled.a`
+const CardStyled = styled(Link)`
 
     position: relative;
     display: flex;

@@ -4,7 +4,20 @@ import { theme } from "../../../assets/theme/theme";
 import { useNavigate } from "react-router-dom";
 import { scrollToTopSmooth } from "../../../utils/window";
 
-export default function OtherCard({ product }) {
+
+type Others = {
+
+    slug: string,
+    name: string,
+    image: {
+        mobile: string,
+        tablet: string,
+        desktop: string
+    }
+
+}
+
+export default function OtherCard({ product }: { product: Others }) {
 
     const navigate = useNavigate()
     const navigateTo = (slug: string) => {

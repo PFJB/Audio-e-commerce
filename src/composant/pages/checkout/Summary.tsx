@@ -7,7 +7,7 @@ import CartContext from "../../../context/CartContext";
 import { data } from "../../../assets/data";
 import { formatPrice } from "../../../utils/math";
 
-export default function Summary({ set }) {
+export default function Summary({ set }: { set: () => void }) {
 
     const { cart, sum } = useContext(CartContext)
 
@@ -26,7 +26,7 @@ export default function Summary({ set }) {
                             key={product.id}
                             id={product.id}
                             image={find.cart}
-                            price={find.price}
+                            price={find.price ?? 0}
                             title={find.name}
                             quantity={product.quantity}
                         />
