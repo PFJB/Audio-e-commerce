@@ -14,7 +14,6 @@ export default function HomeContent() {
 
 			/>
 
-
 			<div className="pic2">
 				<div className="text2">
 					<p>ZX7 SPEAKER</p>
@@ -65,7 +64,6 @@ const HomeContentStyled = styled.section`
 			}
 		}
 	}
-
 
 
   .pic2{

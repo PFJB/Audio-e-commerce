@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../../assets/theme/theme";
 
-type trois = {
+type source = {
     mobile: string,
     tablet: string,
     desktop: string,
 }
 
 type picture = {
-    first: trois,
-    second: trois,
-    third: trois
+    first: source,
+    second: source,
+    third: source
 }
 
 export default function GalleryDetail({ first, second, third }: picture) {

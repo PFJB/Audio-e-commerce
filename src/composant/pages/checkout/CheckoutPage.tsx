@@ -17,7 +17,7 @@ export default function CheckoutPage() {
     const goBack = () => { navigate(-1) }
 
     return (
-        <CategoryPageStyled isShowed={modalShowed}>
+        <CategoryPageStyled $isshowed={modalShowed}>
             {modalShowed && <CheckoutModal />}
             <div className="main">
                 <Header />
@@ -40,13 +40,13 @@ export default function CheckoutPage() {
 
 
 
-const CategoryPageStyled = styled.div<{ isShowed: boolean }>`
+const CategoryPageStyled = styled.div<{ $isshowed: boolean }>`
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: #f2f2f2;
-    overflow: ${({ isShowed }) => isShowed ? "hidden" : "scroll"};
+    overflow: ${({ $isshowed }) => $isshowed ? "hidden" : "scroll"};
 
     .main{
         width: 100%;

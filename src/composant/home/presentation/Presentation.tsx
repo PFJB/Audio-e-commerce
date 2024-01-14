@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../assets/theme/theme";
+import ImgLoading from "../../../reusable-ui/img/ImgLoading";
 const MEN_DESKTOP = "/images/shared/desktop/image-best-gear.jpg"
 const MEN_TABLET = "/images/shared/tablet/image-best-gear.jpg"
 const MEN_MOBILE = "/images/shared/mobile/image-best-gear.jpg"
@@ -12,7 +13,7 @@ export default function Presentation() {
                 <picture>
                     <source media="(min-width: 769px)" srcSet={MEN_DESKTOP} />
                     <source media="(min-width: 426px)" srcSet={MEN_TABLET} />
-                    <img src={MEN_MOBILE} alt="men with a headphone" />
+                    <ImgLoading src={MEN_MOBILE} alt="men with a headphone" />
                 </picture>
             </div>
             <div className="text">

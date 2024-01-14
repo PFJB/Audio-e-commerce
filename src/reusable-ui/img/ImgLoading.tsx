@@ -2,12 +2,12 @@ import { useState } from "react";
 import ReactLoading from 'react-loading';
 import styled from "styled-components";
 
-export default function ImgLoading({ src, alt }: { src: string, alt: string }) {
+export default function ImgLoading({ src, alt, className }: { src: string, alt: string, className?: string }) {
 
     const [isLoading, setIsLoading] = useState(true)
 
     return (
-        <ImgLoadingStyled>
+        <ImgLoadingStyled className={className}>
             <img src={src} onLoad={() => setIsLoading(false)} alt={alt} style={{ display: isLoading ? "none" : "block" }} />
             <div className="loader" style={{ display: isLoading ? "grid" : "none" }}><ReactLoading type="spin" color="black" /></div>
         </ImgLoadingStyled>

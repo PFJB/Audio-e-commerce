@@ -11,14 +11,14 @@ import NavigationList from "../footer/NavigationList";
 const BURGER = "/images/shared/tablet/icon-hamburger.svg"
 
 type Header = {
-    isOpen?: boolean
+    $isopen?: boolean
 }
 export default function Header() {
 
     const { isNavOpen, openNav, isCartOpen, openCart } = useContext(CartContext)
 
     return (
-        <HeaderStyled className="header" isOpen={isNavOpen}>
+        <HeaderStyled className="header" $isopen={isNavOpen}>
 
             <nav>
                 <img className="burger" onClick={openNav} src={BURGER} alt="burger button" />
@@ -75,7 +75,7 @@ nav {
 
 }
     .nav_card{
-        display: ${({ isOpen }) => isOpen ? "block" : "none"};
+        display: ${({ $isopen }) => $isopen ? "block" : "none"};
         position: absolute;
         padding: 32px 24px 35px 24px;
         z-index: 200;

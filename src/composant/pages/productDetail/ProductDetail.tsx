@@ -36,7 +36,7 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
 
 
     return (
-        <ProductDetailStyled className={className} onLeft={onLeft}>
+        <ProductDetailStyled className={className} $onleft={onLeft}>
             <div className="image" >
                 <picture>
                     <source media="(min-width: 1024px)" srcSet={image.desktop && image.desktop} />
@@ -69,7 +69,7 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
 }
 
 
-const ProductDetailStyled = styled.div<{ onLeft: boolean }>`
+const ProductDetailStyled = styled.div<{ $onleft: boolean }>`
 display: grid;
 grid-template-rows: auto auto;
 grid-column: 1fr;
@@ -175,7 +175,7 @@ img{
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: clamp(3.125rem, 2rem + 6vw,7.8125rem);
-    .image{ order: ${({ onLeft }) => onLeft ? "1" : "0"}; }
+    .image{ order: ${({ $onleft }) => $onleft ? "1" : "0"}; }
     .description{ padding-right: 0.9375rem; }
 }
 `;

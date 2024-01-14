@@ -9,7 +9,7 @@ export default function HeaderContent() {
 
             <div className="image">
 
-                <svg className="dd" viewBox="0 0 944 944" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" fill="none" fill-rule="evenodd" opacity="0.3"><circle cx="472" cy="472" r="235.5" /><circle cx="472" cy="472" r="270.5" /><circle cx="472" cy="472" r="471.5" /></g></svg>
+                <svg className="dd" viewBox="0 0 944 944" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" fill="none" fillRule="evenodd" opacity="0.3"><circle cx="472" cy="472" r="235.5" /><circle cx="472" cy="472" r="270.5" /><circle cx="472" cy="472" r="471.5" /></g></svg>
                 <picture>
                     <source media="(min-width: 1024px)" srcSet={HOME_PRESENTATION_SPEAKER_DESKTOP} />
                     <source media="(min-width: 769px)" srcSet={HOME_PRESENTATION_SPEAKER_TABLET} />
@@ -48,8 +48,6 @@ const HeaderContentStyled = styled.div`
         width: 100%;
         height: 40vw;
         
-
-
             .dd{
                 position: absolute;
                 top: 50%;
@@ -58,16 +56,12 @@ const HeaderContentStyled = styled.div`
                 width: 100%;
             }
             
-            
-
-        
-  
         picture{
             display: grid;
             place-content: center;
             position: relative;
-          
         }
+        
         img{
             aspect-ratio: 198/237;
                 height: auto;
