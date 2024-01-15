@@ -11,7 +11,7 @@ export default function Presentation() {
             <div className="picture">
                 <picture>
                     <source media="(min-width: 769px)" srcSet={MEN_DESKTOP} />
-                    <source media="(min-width: 426px)" srcSet={MEN_TABLET} />
+                    <source media="(min-width: 429px)" srcSet={MEN_TABLET} />
                     <img src={MEN_MOBILE} alt="men with a headphone" />
                 </picture>
             </div>

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import Button from "../../../reusable-ui/button/Button";
 import { theme } from "../../../assets/theme/theme";
+import { Link } from "react-router-dom";
+import { scrollToTopSmooth } from "../../../utils/window";
+import ImgLoading from "../../../reusable-ui/img/ImgLoading";
+import { useContext } from "react";
+import CartContext from "../../../context/CartContext";
 
 interface card_props {
     picture: string,
@@ -9,10 +14,17 @@ interface card_props {
 }
 
 export default function Card({ picture, title, link = "/" }: card_props) {
+
+    const { setIsNavOpen } = useContext(CartContext)
+    const navigateTo = () => {
+        scrollToTopSmooth()
+        setIsNavOpen(false)
+    }
+
     return (
-        <CardStyled href={link}>
+        <CardStyled to={link} onClick={navigateTo}>
             <div className="background"></div>
-            <img src={picture} alt={title} />
+            <ImgLoading className="img" mobile={picture} alt={title} />
             <div className="description">
                 <p className="title">{title}</p>
                 <Button className="button" label="shop" version={3} />
@@ -21,7 +33,7 @@ export default function Card({ picture, title, link = "/" }: card_props) {
     )
 }
 
-const CardStyled = styled.a`
+const CardStyled = styled(Link)`
 
     position: relative;
     display: flex;
@@ -32,7 +44,7 @@ const CardStyled = styled.a`
     width: 100%;
     height: 13.5625rem;
 
-    img{
+    .img{
         position: absolute;
         top: 0;
         aspect-ratio: 1/1;

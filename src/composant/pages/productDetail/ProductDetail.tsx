@@ -5,7 +5,6 @@ import { useContext, useState } from "react";
 import CartContext from "../../../context/CartContext";
 import ImgLoading from "../../../reusable-ui/img/ImgLoading";
 
-
 type ProductDescriptionProps = {
     className?: string,
     id: number
@@ -36,13 +35,9 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
 
 
     return (
-        <ProductDetailStyled className={className} $onLeft={onLeft}>
+        <ProductDetailStyled className={className} $onleft={onLeft}>
             <div className="image" >
-                <picture>
-                    <source media="(min-width: 1024px)" srcSet={image.desktop && image.desktop} />
-                    <source media="(min-width: 769px)" srcSet={image.tablet && image.tablet} />
-                    <ImgLoading src={image.mobile && image.mobile} alt={title} />
-                </picture>
+                <ImgLoading desktop={image.desktop} mobile={image.mobile} tablet={image.tablet} alt={title} />
             </div>
             <div className="description">
                 <p className="ad">{ad && "NEW PRODUCT"}</p>
@@ -69,7 +64,7 @@ export default function ProductDetail({ className, id, image, title, ad, descrip
 }
 
 
-const ProductDetailStyled = styled.div`
+const ProductDetailStyled = styled.div<{ $onleft: boolean }>`
 display: grid;
 grid-template-rows: auto auto;
 grid-column: 1fr;
@@ -86,7 +81,7 @@ place-items: center;
     object-fit: contain;
 img{
         width: 100%;
-        max-width: 600px;
+        max-width: 540px;
         height: auto;
     }
 }
@@ -161,7 +156,7 @@ img{
     }
 
 }
-@media screen and (min-width: 48.0625rem) {
+@media screen and (min-width: 640px) {
     row-gap: 3.25rem;
 	grid-template-columns: 1.5fr 2fr;
     grid-template-rows: auto;
@@ -172,10 +167,10 @@ img{
 }
 
 @media screen and (min-width: 64rem) {
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1.2fr 1fr;
     grid-template-rows: auto;
-    gap: clamp(3.125rem, 2rem + 6vw,7.8125rem);
-    .image{ order: ${({ $onLeft }) => $onLeft ? "1" : "0"}; }
+    gap: 124px;
+    .image{ order: ${({ $onleft }) => $onleft ? "1" : "0"}; }
     .description{ padding-right: 0.9375rem; }
 }
 `;

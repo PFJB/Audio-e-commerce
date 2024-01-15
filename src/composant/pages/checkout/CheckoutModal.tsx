@@ -12,7 +12,7 @@ import { formatPrice } from "../../../utils/math";
 export default function CheckoutModal() {
 
     const navigate = useNavigate()
-    const [display, setDisplay] = useState(false)
+    const [display, setDisplay] = useState<boolean>(false)
     const { cart, sum } = useContext(CartContext)
     const copyFirst = cart.slice(0, 1).shift()
     const product = copyFirst ? data.find((productData) => productData.id === copyFirst.id) : null
@@ -70,7 +70,7 @@ export default function CheckoutModal() {
 }
 
 
-const CheckoutModalStyled = styled.div`
+const CheckoutModalStyled = styled.div<{ $display?: boolean; }>`
 
     display: flex;
     position: fixed; 
@@ -141,7 +141,6 @@ const CheckoutModalStyled = styled.div`
         }
 
         .second_field{
-            
             padding: 15px 24px 19px 24px;
             background-color: ${theme.colors.black};
             border-radius: 0 0 5px 5px;

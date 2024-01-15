@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme/theme";
 import LinkButton from "../button/LinkButton";
-
+import ImgLoading from "../img/ImgLoading";
 
 type ProductDescriptionProps = {
     className?: string,
@@ -23,13 +23,9 @@ type ProductDescriptionProps = {
 
 export default function ProductDescription({ className, image, title, ad, description, button, onLeft = true, destination }: ProductDescriptionProps) {
     return (
-        <ProductDescriptionStyled className={className} $onLeft={onLeft}>
+        <ProductDescriptionStyled className={className} $onleft={onLeft}>
             <div className="image" >
-                <picture>
-                    <source media="(min-width: 769px)" srcSet={image.desktop && image.desktop} />
-                    <source media="(min-width: 429px)" srcSet={image.tablet && image.tablet} />
-                    <img src={image.mobile && image.mobile} alt={title} />
-                </picture>
+                <ImgLoading mobile={image.mobile} desktop={image.desktop} tablet={image.tablet} alt={title} />
             </div>
             <div className="description">
                 <p className="ad">{ad && "NEW PRODUCT"}</p>
@@ -37,14 +33,12 @@ export default function ProductDescription({ className, image, title, ad, descri
                 <p className="text">{description}</p>
                 <LinkButton label={button.label} version={button.version} destination={destination} />
             </div>
-
-
         </ProductDescriptionStyled>
     )
 }
 
 
-const ProductDescriptionStyled = styled.div`
+const ProductDescriptionStyled = styled.div<{ $onleft: boolean }>`
 display: grid;
 grid-template-rows: auto auto;
 grid-column: 1fr;
@@ -55,12 +49,10 @@ row-gap: 32px;
 .image{
     display: grid;
     place-content: center;
-  
-
     object-fit: contain;
 img{
         width: 100%;
-        max-width: 600px;
+        
         height: auto;
     }
 }
@@ -97,7 +89,12 @@ img{
 @media screen and (min-width: 426px) {
     row-gap: 52px;
 
-
+.image{
+img{
+        width: 100%;
+        height: auto;
+    }
+}
 
     .description{
         .ad{
@@ -112,9 +109,14 @@ img{
 @media screen and (min-width: 769px) {
 	grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: clamp(50px, 2rem + 6vw,125px);
+    gap: clamp(30px, 0.5rem + 8vw,125px);
     .image{
-        order: ${({ $onLeft }) => $onLeft ? "1" : "0"};
+        img{
+        width: 100%;
+        max-width: 540px;
+        height: auto;
+    }
+        order: ${({ $onleft }) => $onleft ? "1" : "0"};
     }
     .description{
         padding-right: 15px;

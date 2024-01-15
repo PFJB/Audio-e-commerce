@@ -2,14 +2,25 @@ import styled from 'styled-components';
 import { theme } from '../../../assets/theme/theme';
 import OtherCard from './OtherCard';
 
+type Others = {
 
-export default function OtherChoice({ product }) {
+    slug: string,
+    name: string,
+    image: {
+        mobile: string,
+        tablet: string,
+        desktop: string
+    }
+
+}
+
+export default function OtherChoice({ product }: { product: Others[] | undefined }) {
     return (
         <OtherChoiceStyled>
             <p className='header'>you may also like</p>
-            <OtherCard product={product.others[0]} />
-            <OtherCard product={product.others[1]} />
-            <OtherCard product={product.others[2]} />
+            <OtherCard product={product![0]} />
+            <OtherCard product={product![1]} />
+            <OtherCard product={product![2]} />
         </OtherChoiceStyled>
     )
 }

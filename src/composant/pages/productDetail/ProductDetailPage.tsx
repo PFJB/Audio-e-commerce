@@ -60,7 +60,7 @@ export default function CategoryPage() {
                             mobile: product?.gallery?.third.mobile ?? ""
                         }}
                     />
-                    <OtherChoice product={product} />
+                    <OtherChoice product={product.others} />
                     <NavigationCard />
                     <Presentation />
                 </div>

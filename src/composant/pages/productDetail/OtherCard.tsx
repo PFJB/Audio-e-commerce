@@ -4,7 +4,20 @@ import { theme } from "../../../assets/theme/theme";
 import { useNavigate } from "react-router-dom";
 import { scrollToTopSmooth } from "../../../utils/window";
 
-export default function OtherCard({ product }) {
+
+type Others = {
+
+    slug: string,
+    name: string,
+    image: {
+        mobile: string,
+        tablet: string,
+        desktop: string
+    }
+
+}
+
+export default function OtherCard({ product }: { product: Others }) {
 
     const navigate = useNavigate()
     const navigateTo = (slug: string) => {
@@ -17,7 +30,7 @@ export default function OtherCard({ product }) {
             <picture>
                 <source media="(min-width: 48.0625rem)" srcSet={product.image.desktop} />
                 <source media="(min-width: 37.5rem)" srcSet={product.image.tablet} />
-                <img src={product.image.tablet} alt={product.name} /></picture>
+                <img src={product.image.mobile} alt={product.name} /></picture>
             <div className="description">
                 <p>{product.name}</p>
                 <Button label='see product' version={1} onClick={() => navigateTo(product.slug)} />

@@ -19,7 +19,7 @@ export default function Button({ label, version = 1, className, onClick }: Butto
 }
 
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled.button<{ version: number }>`
     width: 160px;
     height: 48px;
     cursor: pointer;
