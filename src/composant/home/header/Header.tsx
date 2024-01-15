@@ -72,6 +72,7 @@ nav {
         transform: translateX(-50%);
     }
     .nav_list{ display: none; }
+    .burger {cursor: pointer;}
 
 }
     .nav_card{

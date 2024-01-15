@@ -13,6 +13,7 @@ export default function Home() {
 
     return (
         <HomeStyled>
+
             <Header />
             <div className="body">
                 <div className="container">
@@ -22,6 +23,7 @@ export default function Home() {
                 </div>
             </div>
             <Footer />
+
         </HomeStyled>
     )
 }
@@ -32,6 +34,9 @@ flex-direction: column;
 align-items: center;
 width: 100%;
 height: 100%;
+    .main{
+        width: 100%;
+    }
 
     .body {
         display: flex;  

@@ -29,6 +29,7 @@ export default function CheckoutPage() {
                             <Summary set={() => setModalShowed(modalShowed ? false : true)} />
 
                         </div>
+
                     </div>
                 </div>
                 <Footer />

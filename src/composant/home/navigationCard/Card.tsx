@@ -24,7 +24,7 @@ export default function Card({ picture, title, link = "/" }: card_props) {
     return (
         <CardStyled to={link} onClick={navigateTo}>
             <div className="background"></div>
-            <ImgLoading className="img" src={picture} alt={title} />
+            <ImgLoading className="img" mobile={picture} alt={title} />
             <div className="description">
                 <p className="title">{title}</p>
                 <Button className="button" label="shop" version={3} />

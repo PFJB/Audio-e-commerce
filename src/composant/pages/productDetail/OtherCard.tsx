@@ -30,7 +30,7 @@ export default function OtherCard({ product }: { product: Others }) {
             <picture>
                 <source media="(min-width: 48.0625rem)" srcSet={product.image.desktop} />
                 <source media="(min-width: 37.5rem)" srcSet={product.image.tablet} />
-                <img src={product.image.tablet} alt={product.name} /></picture>
+                <img src={product.image.mobile} alt={product.name} /></picture>
             <div className="description">
                 <p>{product.name}</p>
                 <Button label='see product' version={1} onClick={() => navigateTo(product.slug)} />
