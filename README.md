@@ -11,7 +11,7 @@ Le projet est réalisé à l'aide du site "Frontend Mentor", qui fournit des id�
 
 ## IMAGE PREVIEW
 
-<img src"./public/images/preview-project/Preview1.PNG"/>
+[Contribution guidelines for this project](./public/images/preview-project)
 
 ## TECHNIQUE
 
