@@ -1,4 +1,5 @@
-# Audiophine E-commerce ! --- NOT COMPLETELY FINISHED YET
+# Audiophine E-commerce !
+WORK IN PROGRESS
 
 Projet Frond End React **Typescript**
 
