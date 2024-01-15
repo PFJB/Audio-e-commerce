@@ -3,6 +3,7 @@ import { theme } from "../../assets/theme/theme";
 import LinkButton from "../button/LinkButton";
 import ImgLoading from "../img/ImgLoading";
 
+
 type ProductDescriptionProps = {
     className?: string,
     image: {
@@ -25,7 +26,11 @@ export default function ProductDescription({ className, image, title, ad, descri
     return (
         <ProductDescriptionStyled className={className} $onleft={onLeft}>
             <div className="image" >
-                <ImgLoading mobile={image.mobile} desktop={image.desktop} tablet={image.tablet} alt={title} />
+                <picture>
+                    <source media="(min-width: 769px)" srcSet={image.desktop && image.desktop} />
+                    <source media="(min-width: 429px)" srcSet={image.tablet && image.tablet} />
+                    <img src={image.mobile && image.mobile} alt={title} />
+                </picture>
             </div>
             <div className="description">
                 <p className="ad">{ad && "NEW PRODUCT"}</p>
@@ -33,6 +38,8 @@ export default function ProductDescription({ className, image, title, ad, descri
                 <p className="text">{description}</p>
                 <LinkButton label={button.label} version={button.version} destination={destination} />
             </div>
+
+
         </ProductDescriptionStyled>
     )
 }
