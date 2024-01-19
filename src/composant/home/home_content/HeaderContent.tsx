@@ -22,7 +22,7 @@ export default function HeaderContent() {
             <div className="description">
                 <h2 className="title">{"ZX9 SPEAKER"}</h2>
                 <p className="text">{"Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."}</p>
-                <LinkButton label="see product" version={2} destination={"/"} />
+                <LinkButton className="button" label="see product" version={2} destination={"/product-detail/zx9-speaker"} />
             </div>
 
 
@@ -90,6 +90,10 @@ const HeaderContentStyled = styled.div`
             line-height: ${theme.fonts.lineSpace.line_s2};
             margin-bottom: 24px;
             width: 80%;
+        }
+        .button{
+            position: relative;
+            z-index: 2;
         }
 
     }

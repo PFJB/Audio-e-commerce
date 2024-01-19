@@ -10,9 +10,7 @@ export default function HomeContent() {
 	return (
 		<HomeContentStyled>
 
-			<HeaderContent
-
-			/>
+			<HeaderContent />
 
 			<div className="pic2">
 				<div className="text2">
