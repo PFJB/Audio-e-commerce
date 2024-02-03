@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../assets/theme/theme";
 import LinkButton from "../button/LinkButton";
-import ImgLoading from "../img/ImgLoading";
-
 
 type ProductDescriptionProps = {
     className?: string,
