@@ -27,7 +27,7 @@ const FooterStyled = styled.footer`
 display: grid;
 place-items: center;
 position: relative;
-background-color: ${theme.colors.black};
+background-color: #191919;
 bottom: 0;
 width: 100%;
 padding: 3.75rem 2.4375rem 2.875rem 2.4375rem;
