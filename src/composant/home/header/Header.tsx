@@ -42,7 +42,7 @@ const HeaderStyled = styled.header<Header>`
     z-index: 4;
     height: 90px;
     width: 100%;
-    background-color: black;
+    background-color: #191919;
     padding: 0 24px;
 
 nav {
