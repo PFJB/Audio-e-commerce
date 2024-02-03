@@ -4,6 +4,7 @@ import Header from "./header/Header";
 import HomeContent from "./home_content/HomeContent";
 import NavigationCard from "./navigationCard/NavigationCard";
 import Presentation from "./presentation/Presentation";
+import Hero from "./hero/Hero";
 
 
 
@@ -13,8 +14,8 @@ export default function Home() {
 
     return (
         <HomeStyled>
-
             <Header />
+            <Hero />
             <div className="body">
                 <div className="container">
                     <NavigationCard />
