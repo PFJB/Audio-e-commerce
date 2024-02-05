@@ -15,7 +15,7 @@ const TitleCategoryStyled = styled.section`
     height: clamp(6.25rem, 2rem + 15vw, 15.375rem);
     width: 100%;
     margin-bottom: 4rem;
-    background-color: black;
+    background-color: #191919;
     color: ${theme.colors.white};
     text-transform: uppercase;
     font-size: clamp(${theme.fonts.size.font_s5}, 7.5vw,${theme.fonts.size.font_s7});
